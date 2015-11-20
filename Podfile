@@ -1,4 +1,4 @@
-xcodeproj 'PlusJoe.xcodeproj'
+xcodeproj 'TenTags.xcodeproj'
 
 pod 'Parse', '~> 1.10'
 pod 'Localytics', '~> 3.5'

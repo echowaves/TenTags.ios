@@ -1,0 +1,35 @@
+PODS:
+  - Bolts/Tasks (1.5.0)
+  - Crashlytics (3.4.1):
+    - Fabric (~> 1.6.0)
+  - Digits (1.13.1):
+    - TwitterCore (= 1.13.1)
+  - Fabric (1.6.1)
+  - Localytics (3.5.1)
+  - Parse (1.10.0):
+    - Bolts/Tasks (~> 1.5)
+  - TwitterCore (1.13.1):
+    - Fabric
+  - TwitterKit (1.13.1):
+    - TwitterCore (= 1.13.1)
+
+DEPENDENCIES:
+  - Crashlytics (~> 3.4)
+  - Digits (~> 1.13)
+  - Fabric (~> 1.6)
+  - Localytics (~> 3.5)
+  - Parse (~> 1.10)
+  - TwitterCore (~> 1.13)
+  - TwitterKit (~> 1.13)
+
+SPEC CHECKSUMS:
+  Bolts: 722ab9a4f8b50fc4ed1b9998a5a7a2b3f16d80b4
+  Crashlytics: 41574a245bc6ae10c55d57f385ebd2004e5bee05
+  Digits: e8d62251f6b461996a829ed2e84a91f6bf14ff34
+  Fabric: bf0ceb04e7c924090efc5f8c55e4fbcca189e0a0
+  Localytics: da06c00606839b53978ca093adbca1d8afdeeb3e
+  Parse: 90b2544822200f84b18bfacc4e8b0a3a6c3584a2
+  TwitterCore: 4f6fbd413f6d574d38bfbeeeb5cd75738caf567e
+  TwitterKit: 77ee49981d79c9663eae3920641addf7c8713b38
+
+COCOAPODS: 0.39.0
