@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 47;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AA222FA1BFF6BE9002D7A37 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0AA222F91BFF6BE9002D7A37 /* fontawesome-webfont.ttf */; };
 		0AAD0F981BFF686C001EE16B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD0F971BFF686C001EE16B /* AppDelegate.swift */; };
 		0AAD0F9A1BFF686C001EE16B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD0F991BFF686C001EE16B /* ViewController.swift */; };
 		0AAD0F9D1BFF686C001EE16B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AAD0F9B1BFF686C001EE16B /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		018708EA628AAB9A1DA968AD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0AA222F91BFF6BE9002D7A37 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = "<group>"; };
 		0AAD0F941BFF686C001EE16B /* TenTags.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TenTags.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AAD0F971BFF686C001EE16B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AAD0F991BFF686C001EE16B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 		DE407BEEBDC31B9FA6326510 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0AA222F91BFF6BE9002D7A37 /* fontawesome-webfont.ttf */,
 				018708EA628AAB9A1DA968AD /* libPods.a */,
 			);
 			name = Frameworks;
@@ -127,7 +130,7 @@
 				};
 			};
 			buildConfigurationList = 0AAD0F8F1BFF686C001EE16B /* Build configuration list for PBXProject "TenTags" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -150,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AAD0FA21BFF686C001EE16B /* LaunchScreen.storyboard in Resources */,
+				0AA222FA1BFF6BE9002D7A37 /* fontawesome-webfont.ttf in Resources */,
 				0AAD0F9F1BFF686C001EE16B /* Assets.xcassets in Resources */,
 				0AAD0F9D1BFF686C001EE16B /* Main.storyboard in Resources */,
 			);
