@@ -19,7 +19,6 @@ DEPENDENCIES:
   - Fabric (~> 1.6)
   - Localytics (~> 3.5)
   - Parse (~> 1.10)
-  - TwitterCore (~> 1.13)
   - TwitterKit (~> 1.13)
 
 SPEC CHECKSUMS:
