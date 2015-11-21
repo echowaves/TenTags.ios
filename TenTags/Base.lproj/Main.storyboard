@@ -171,7 +171,7 @@
                                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" id="J43-op-Z1c">
+                                        <barButtonItem key="rightBarButtonItem" style="done" id="J43-op-Z1c">
                                             <view key="customView" contentMode="scaleToFill" id="b6a-vm-iRz">
                                                 <rect key="frame" x="447" y="5" width="133" height="33"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -256,7 +256,7 @@
                                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" style="plain" id="1lK-UT-bWF">
+                                        <barButtonItem key="rightBarButtonItem" style="done" id="1lK-UT-bWF">
                                             <view key="customView" contentMode="scaleToFill" id="eCg-DX-XME">
                                                 <rect key="frame" x="447" y="5" width="133" height="33"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
