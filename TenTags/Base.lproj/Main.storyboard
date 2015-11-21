@@ -99,7 +99,7 @@
                                 <rect key="frame" x="20" y="20" width="517" height="354"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Tag # yourself -- this will define who you are. It's OK to change/update your # tags oftent (or never). Keep 10 tags running in background -- it will notify you if likeminded taggers are around, so you can engage.</string>
+                                <string key="text">Tag # yourself -- this will define who you are. It's OK to change/update your # tags oftent (or never). Keep 10 tags running in background -- it will notify you when like-minded taggers are near,  so you can engage.</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -152,7 +152,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem id="wC6-I3-OOJ">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="OhH-N9-KkM">
+                                        <barButtonItem key="leftBarButtonItem" id="OhH-N9-KkM">
                                             <view key="customView" contentMode="scaleToFill" id="hXp-se-4a1">
                                                 <rect key="frame" x="20" y="5" width="133" height="33"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -171,7 +171,7 @@
                                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" style="done" id="J43-op-Z1c">
+                                        <barButtonItem key="rightBarButtonItem" id="J43-op-Z1c">
                                             <view key="customView" contentMode="scaleToFill" id="b6a-vm-iRz">
                                                 <rect key="frame" x="447" y="5" width="133" height="33"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -237,7 +237,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem id="8zr-8b-BLO">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="UDO-cu-EDg">
+                                        <barButtonItem key="leftBarButtonItem" id="UDO-cu-EDg">
                                             <view key="customView" contentMode="scaleToFill" id="HCY-LP-f0F">
                                                 <rect key="frame" x="20" y="5" width="133" height="33"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -256,7 +256,7 @@
                                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" style="done" id="1lK-UT-bWF">
+                                        <barButtonItem key="rightBarButtonItem" id="1lK-UT-bWF">
                                             <view key="customView" contentMode="scaleToFill" id="eCg-DX-XME">
                                                 <rect key="frame" x="447" y="5" width="133" height="33"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
