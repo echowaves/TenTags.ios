@@ -6,8 +6,4 @@
 //  Copyright © 2015 EchoWaves. All rights reserved.
 //
 
-#ifndef TenTags_Bridging_Header_h
-#define TenTags_Bridging_Header_h
-
-
-#endif /* TenTags_Bridging_Header_h */
+#import "Localytics.h"

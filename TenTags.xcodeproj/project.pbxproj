@@ -20,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		018708EA628AAB9A1DA968AD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A2A38BE1C0014C100861741 /* TenTags-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TenTags-Bridging-Header.h"; sourceTree = "<group>"; };
 		0AA222F91BFF6BE9002D7A37 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = "<group>"; };
 		0AA222FC1BFF7FA7002D7A37 /* MeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		0AA222FE1BFF7FF0002D7A37 /* ThemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +76,7 @@
 				0AAD0F991BFF686C001EE16B /* HomeViewController.swift */,
 				0AA222FC1BFF7FA7002D7A37 /* MeViewController.swift */,
 				0AA222FE1BFF7FF0002D7A37 /* ThemViewController.swift */,
+				0A2A38BE1C0014C100861741 /* TenTags-Bridging-Header.h */,
 			);
 			path = TenTags;
 			sourceTree = "<group>";
@@ -289,6 +291,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "TenTags/TenTags-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -326,6 +329,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "TenTags/TenTags-Bridging-Header.h";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
