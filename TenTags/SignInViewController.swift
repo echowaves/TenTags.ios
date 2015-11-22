@@ -14,9 +14,11 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-
+        
         if let session = Digits.sharedInstance().session() {
             print("session established: \(session.description)")
+            print("session established phone number: \(session.phoneNumber)")
+            createOrloginUser(session)
         } else {
             print("no session found")
         }
@@ -27,8 +29,46 @@ class SignInViewController: UIViewController {
         let digits = Digits.sharedInstance()
         digits.authenticateWithCompletion { (session, error) in
             // Inspect session/error objects
-            print("new session: \(session)")
+            if(session != nil) {
+                print("new session: \(session.description)")
+                print("new session phone number: \(session.phoneNumber)")
+                self.createOrloginUser(session)
+            }
         }
     }
+    
+    func createOrloginUser(session: DGTSession) {
+        let user = PFUser()
+        user.username = session.phoneNumber
+        user.password = session.phoneNumber
+        
+        user.signUpInBackgroundWithBlock {
+            (succeeded: Bool, error: NSError?) -> Void in
+            if let error = error {
+                let errorString = error.userInfo["error"] as? NSString
+                // Show the errorString somewhere and let the user try again.
+                print("error signing up: \(errorString!)")
+            } else {
+                // Hooray! Let them use the app now.
+                print("sign up new user is successfull")
+            }
+            //sign in the user
+            PFUser.logInWithUsernameInBackground(session.phoneNumber, password:session.phoneNumber) {
+                (user: PFUser?, error: NSError?) -> Void in
+                if user != nil {
+                    // Do stuff after successful login.
+                    print("signed in as: \(PFUser.currentUser()!.username!)")
+                    // instantiate next view controller
+                    let homeViewController = self.storyboard?.instantiateViewControllerWithIdentifier("homeViewController") as! HomeViewController
+                    UIApplication.sharedApplication().keyWindow!.rootViewController!.presentViewController(homeViewController, animated: false, completion: nil)
+
+                } else {
+                    // The login failed. Check error to see why.
+                    print("signin in failed....")
+                }
+            }
+        }
+    }
+    
 }
 
