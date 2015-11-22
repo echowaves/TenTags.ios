@@ -27,14 +27,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We need to make sure you are human" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9za-zB-zZN">
-                                <rect key="frame" x="156" y="207" width="288" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dzB-nv-9hu">
+                                <rect key="frame" x="20" y="260" width="560" height="79"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="79" id="cwb-gh-gG7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="23"/>
+                                <state key="normal" title="Verify my phone number">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="verifyPhoneNumberButtonClicked:" destination="3j2-cO-UuV" eventType="touchUpInside" id="4ba-6P-U14"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We need to make sure you are human" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9za-zB-zZN">
+                                <rect key="frame" x="20" y="347" width="560" height="14"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="288" id="2HI-hU-ye5"/>
-                                    <constraint firstAttribute="height" constant="21" id="c3b-f1-g9k"/>
+                                    <constraint firstAttribute="height" constant="14" id="6nv-0w-rgp"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -42,8 +62,12 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="9za-zB-zZN" firstAttribute="centerX" secondItem="4RE-ih-ALa" secondAttribute="centerX" id="Zgk-yE-hL2"/>
-                            <constraint firstItem="9za-zB-zZN" firstAttribute="centerY" secondItem="4RE-ih-ALa" secondAttribute="centerY" constant="-82.5" id="qmV-AR-EvO"/>
+                            <constraint firstItem="9za-zB-zZN" firstAttribute="top" secondItem="dzB-nv-9hu" secondAttribute="bottom" constant="8" id="1os-ic-vwI"/>
+                            <constraint firstItem="dzB-nv-9hu" firstAttribute="leading" secondItem="4RE-ih-ALa" secondAttribute="leadingMargin" id="4df-HR-GGW"/>
+                            <constraint firstItem="9za-zB-zZN" firstAttribute="leading" secondItem="4RE-ih-ALa" secondAttribute="leadingMargin" id="7ko-Kb-E3u"/>
+                            <constraint firstItem="dzB-nv-9hu" firstAttribute="trailing" secondItem="4RE-ih-ALa" secondAttribute="trailingMargin" id="NfU-7p-4JK"/>
+                            <constraint firstItem="9za-zB-zZN" firstAttribute="trailing" secondItem="4RE-ih-ALa" secondAttribute="trailingMargin" id="O7a-2E-n1E"/>
+                            <constraint firstItem="dzB-nv-9hu" firstAttribute="centerY" secondItem="4RE-ih-ALa" secondAttribute="centerY" id="glA-6E-7fs"/>
                         </constraints>
                     </view>
                 </viewController>
