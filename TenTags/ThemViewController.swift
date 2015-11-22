@@ -19,7 +19,13 @@ class ThemViewController: UIViewController {
     @IBAction func switchToMe(sender: AnyObject) {
         self.dismissViewControllerAnimated(false) { () -> Void in
             let meViewController = self.storyboard?.instantiateViewControllerWithIdentifier("meController") as! MeViewController
-            UIApplication.sharedApplication().keyWindow!.rootViewController!.presentViewController(meViewController, animated: false, completion: nil)
+         
+            if var topController = UIApplication.sharedApplication().keyWindow?.rootViewController {
+                while let presentedViewController = topController.presentedViewController {
+                    topController = presentedViewController
+                }
+                topController.presentViewController(meViewController, animated: false, completion: nil)
+            }
         }
         
     }

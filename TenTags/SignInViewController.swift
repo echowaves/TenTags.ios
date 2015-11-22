@@ -60,7 +60,13 @@ class SignInViewController: UIViewController {
                     print("signed in as: \(PFUser.currentUser()!.username!)")
                     // instantiate next view controller
                     let homeViewController = self.storyboard?.instantiateViewControllerWithIdentifier("homeViewController") as! HomeViewController
-                    UIApplication.sharedApplication().keyWindow!.rootViewController!.presentViewController(homeViewController, animated: false, completion: nil)
+                    
+                    if var topController = UIApplication.sharedApplication().keyWindow?.rootViewController {
+                        while let presentedViewController = topController.presentedViewController {
+                            topController = presentedViewController
+                        }
+                        topController.presentViewController(homeViewController, animated: false, completion: nil)
+                    }
 
                 } else {
                     // The login failed. Check error to see why.
