@@ -13,6 +13,9 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        Digits.sharedInstance().logOut()
+        
         // Do any additional setup after loading the view, typically from a nib.
         
         if let session = Digits.sharedInstance().session() {
@@ -59,13 +62,13 @@ class SignInViewController: UIViewController {
                     // Do stuff after successful login.
                     print("signed in as: \(PFUser.currentUser()!.username!)")
                     // instantiate next view controller
-                    let homeViewController = self.storyboard?.instantiateViewControllerWithIdentifier("homeViewController") as! HomeViewController
+                    let navTabBarController = self.storyboard?.instantiateViewControllerWithIdentifier("navTabBarController") as! NavTabBarController
                     
                     if var topController = UIApplication.sharedApplication().keyWindow?.rootViewController {
                         while let presentedViewController = topController.presentedViewController {
                             topController = presentedViewController
                         }
-                        topController.presentViewController(homeViewController, animated: false, completion: nil)
+                        topController.presentViewController(navTabBarController, animated: false, completion: nil)
                     }
 
                 } else {
