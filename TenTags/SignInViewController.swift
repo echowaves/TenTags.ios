@@ -44,6 +44,7 @@ class SignInViewController: UIViewController {
         let user = PFUser()
         user.username = session.phoneNumber
         user.password = session.phoneNumber
+        PFUser.logOut()
         
         user.signUpInBackgroundWithBlock {
             (succeeded: Bool, error: NSError?) -> Void in

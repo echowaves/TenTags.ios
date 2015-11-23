@@ -15,13 +15,21 @@ class TTHashTag: NSObject {
     
     
     class func addHashTag(hashTagString: String) -> () {
-        PFUser.currentUser()?.addUniqueObject(hashTagString, forKey:"hashTags" )
-        PFUser.currentUser()?.saveInBackground()
-
+        do {
+            PFUser.currentUser()?.addUniqueObject(hashTagString, forKey:"hashTags" )
+            try PFUser.currentUser()?.save()
+        } catch {
+            print("Error saving hasTag to the user")
+        }
         //just add to tags table, we will check for duplicates in beforesave.
-        let hashTag = PFObject(className: TTHASHTAG.CLASS_NAME)
-        hashTag[TTHASHTAG.hashTag] = hashTagString
-        hashTag.saveInBackground()
+        do {
+            let hashTag = PFObject(className: TTHASHTAG.CLASS_NAME)
+            hashTag[TTHASHTAG.hashTag] = hashTagString
+            try hashTag.save()
+        } catch {
+            print("Error saving new hastag")
+        }
+        
     }
 
     
