@@ -78,10 +78,9 @@
             </objects>
             <point key="canvasLocation" x="533" y="838.99999999999989"/>
         </scene>
-        <!--wer-->
+        <!--my Tags-->
         <scene sceneID="BmH-NG-F9p">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Pus-zn-b3k" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="meController" id="aCo-5x-VpB" customClass="MeViewController" customModule="TenTags" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ASO-bc-crA"/>
@@ -94,14 +93,39 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" id="pSH-6Y-mMl"/>
-                    <navigationItem key="navigationItem" title="wer" id="75k-fU-mTG">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="5Z7-Gk-sH9"/>
+                    <navigationItem key="navigationItem" title="my Tags" id="75k-fU-mTG">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="o7V-gI-CkC">
+                            <view key="customView" contentMode="scaleToFill" id="9vg-Gj-2RT">
+                                <rect key="frame" x="447" y="5" width="133" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CxT-hG-EbY">
+                                        <rect key="frame" x="91" y="2" width="34" height="30"/>
+                                        <animations/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                        <state key="normal" title="0"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="vfa-B6-LgA" kind="show" id="fmF-lt-KQQ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <animations/>
+                            </view>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pus-zn-b3k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2755" y="477.99999999999994"/>
+            <point key="canvasLocation" x="2755" y="477"/>
         </scene>
-        <!--Them View Controller-->
+        <!--them Around-->
         <scene sceneID="b8S-Nm-3wk">
             <objects>
                 <viewController storyboardIdentifier="themController" id="soT-hF-LZJ" customClass="ThemViewController" customModule="TenTags" sceneMemberID="viewController">
@@ -112,15 +136,75 @@
                     <view key="view" contentMode="scaleToFill" id="hle-6f-lmR">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="XZj-uJ-uqD">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <animations/>
+                            </mapView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XZj-uJ-uqD" firstAttribute="top" secondItem="2z2-NB-4D9" secondAttribute="bottom" id="5le-R7-LUE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XZj-uJ-uqD" secondAttribute="trailing" constant="-20" id="KzE-xU-JdQ"/>
+                            <constraint firstItem="XZj-uJ-uqD" firstAttribute="leading" secondItem="hle-6f-lmR" secondAttribute="leadingMargin" constant="-20" id="UJr-el-fZM"/>
+                            <constraint firstItem="iVq-Rh-aTG" firstAttribute="top" secondItem="XZj-uJ-uqD" secondAttribute="bottom" id="vm5-BJ-5TB"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" id="X40-Bb-7aS"/>
-                    <navigationItem key="navigationItem" id="mbR-Rp-gWk"/>
+                    <navigationItem key="navigationItem" title="them Around" id="mbR-Rp-gWk">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="8TN-Rt-gHk">
+                            <view key="customView" contentMode="scaleToFill" id="b66-wM-gYw">
+                                <rect key="frame" x="447" y="5" width="133" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6dX-8G-YOG">
+                                        <rect key="frame" x="91" y="2" width="34" height="30"/>
+                                        <animations/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                        <state key="normal" title="0"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="vfa-B6-LgA" kind="show" id="Ljv-rC-aL2"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <animations/>
+                            </view>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="XZj-uJ-uqD" id="zGk-Bc-gfY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Lg-qS-OHM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2755" y="1191"/>
+        </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="xif-Us-l0U">
+            <objects>
+                <viewController id="vfa-B6-LgA" customClass="ChatViewController" customModule="TenTags" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sKR-Pc-yap"/>
+                        <viewControllerLayoutGuide type="bottom" id="NDM-Nh-bWg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="o5x-v9-bRL">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wg5-zD-cZ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3596" y="838"/>
         </scene>
         <!--me-->
         <scene sceneID="h95-At-eqv">
@@ -183,4 +267,7 @@
         <image name="me" width="32" height="32"/>
         <image name="them" width="32" height="32"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Ljv-rC-aL2"/>
+    </inferredMetricsTieBreakers>
 </document>
