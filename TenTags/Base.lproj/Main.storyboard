@@ -94,7 +94,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" id="pSH-6Y-mMl"/>
                     <navigationItem key="navigationItem" title="my Tags" id="75k-fU-mTG">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="o7V-gI-CkC">
+                        <barButtonItem key="rightBarButtonItem" id="o7V-gI-CkC">
                             <view key="customView" contentMode="scaleToFill" id="9vg-Gj-2RT">
                                 <rect key="frame" x="447" y="5" width="133" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -153,7 +153,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" id="X40-Bb-7aS"/>
                     <navigationItem key="navigationItem" title="them Around" id="mbR-Rp-gWk">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="8TN-Rt-gHk">
+                        <barButtonItem key="rightBarButtonItem" id="8TN-Rt-gHk">
                             <view key="customView" contentMode="scaleToFill" id="b66-wM-gYw">
                                 <rect key="frame" x="447" y="5" width="133" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
