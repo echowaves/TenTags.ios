@@ -62,13 +62,13 @@ class SignInViewController: UIViewController {
                     // Do stuff after successful login.
                     print("signed in as: \(PFUser.currentUser()!.username!)")
                     // instantiate next view controller
-                    let navTabBarController = self.storyboard?.instantiateViewControllerWithIdentifier("navTabBarController") as! NavTabBarController
+                    let navController = self.storyboard?.instantiateViewControllerWithIdentifier("navController") as! NavController
                     
                     if var topController = UIApplication.sharedApplication().keyWindow?.rootViewController {
                         while let presentedViewController = topController.presentedViewController {
                             topController = presentedViewController
                         }
-                        topController.presentViewController(navTabBarController, animated: false, completion: nil)
+                        topController.presentViewController(navController, animated: false, completion: nil)
                     }
 
                 } else {
