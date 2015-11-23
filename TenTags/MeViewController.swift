@@ -15,19 +15,5 @@ class MeViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    
-    @IBAction func switchToThem(sender: AnyObject) {
-        
-        self.dismissViewControllerAnimated(false) { () -> Void in
-            let themViewController = self.storyboard?.instantiateViewControllerWithIdentifier("themController") as! ThemViewController
-            
-            if var topController = UIApplication.sharedApplication().keyWindow?.rootViewController {
-                while let presentedViewController = topController.presentedViewController {
-                    topController = presentedViewController
-                }
-                topController.presentViewController(themViewController, animated: false, completion: nil)
-            }
-        }
-    }
 }
 

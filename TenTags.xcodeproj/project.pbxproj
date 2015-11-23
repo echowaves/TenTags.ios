@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A647BF51C029C8200511E88 /* NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A647BF41C029C8200511E88 /* NavController.swift */; };
+		0A647BF71C02BE5800511E88 /* AddNewTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A647BF61C02BE5800511E88 /* AddNewTagViewController.swift */; };
 		0A92B8A91C0298BE005AF812 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A92B8A81C0298BE005AF812 /* ChatViewController.swift */; };
 		0AA222FA1BFF6BE9002D7A37 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0AA222F91BFF6BE9002D7A37 /* fontawesome-webfont.ttf */; };
 		0AA222FD1BFF7FA7002D7A37 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA222FC1BFF7FA7002D7A37 /* MeViewController.swift */; };
@@ -25,6 +26,7 @@
 		018708EA628AAB9A1DA968AD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A2A38BE1C0014C100861741 /* TenTags-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TenTags-Bridging-Header.h"; sourceTree = "<group>"; };
 		0A647BF41C029C8200511E88 /* NavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavController.swift; sourceTree = "<group>"; };
+		0A647BF61C02BE5800511E88 /* AddNewTagViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewTagViewController.swift; sourceTree = "<group>"; };
 		0A92B8A81C0298BE005AF812 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		0AA222F91BFF6BE9002D7A37 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = "<group>"; };
 		0AA222FC1BFF7FA7002D7A37 /* MeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				0A647BF41C029C8200511E88 /* NavController.swift */,
 				0AE987611C0256A300598F75 /* NavTabBarController.swift */,
 				0AA222FC1BFF7FA7002D7A37 /* MeViewController.swift */,
+				0A647BF61C02BE5800511E88 /* AddNewTagViewController.swift */,
 				0AA222FE1BFF7FF0002D7A37 /* ThemViewController.swift */,
 				0A2A38BE1C0014C100861741 /* TenTags-Bridging-Header.h */,
 			);
@@ -251,6 +254,7 @@
 				0AA222FD1BFF7FA7002D7A37 /* MeViewController.swift in Sources */,
 				0AE987601C00BE7600598F75 /* SignInViewController.swift in Sources */,
 				0A92B8A91C0298BE005AF812 /* ChatViewController.swift in Sources */,
+				0A647BF71C02BE5800511E88 /* AddNewTagViewController.swift in Sources */,
 				0AAD0F981BFF686C001EE16B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
