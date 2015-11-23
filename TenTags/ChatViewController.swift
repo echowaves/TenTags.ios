@@ -19,5 +19,8 @@ class ChatViewController: UIViewController {
     }
     
     
+    @IBAction func backButtonPressed(sender: AnyObject) {
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
 }
 

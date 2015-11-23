@@ -135,7 +135,7 @@
             </objects>
             <point key="canvasLocation" x="2755" y="1191"/>
         </scene>
-        <!--Chat View Controller-->
+        <!--Chats-->
         <scene sceneID="xif-Us-l0U">
             <objects>
                 <viewController id="vfa-B6-LgA" customClass="ChatViewController" customModule="TenTags" sceneMemberID="viewController">
@@ -149,6 +149,13 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Chats" id="bzK-Ir-hS4">
+                        <barButtonItem key="leftBarButtonItem" image="back" id="uw0-Ph-1L2">
+                            <connections>
+                                <action selector="backButtonPressed:" destination="vfa-B6-LgA" id="2pq-QZ-lDq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wg5-zD-cZ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -219,6 +226,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="back" width="32" height="32"/>
         <image name="me" width="32" height="32"/>
         <image name="them" width="32" height="32"/>
     </resources>
