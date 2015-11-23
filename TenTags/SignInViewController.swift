@@ -54,6 +54,11 @@ class SignInViewController: UIViewController {
             } else {
                 // Hooray! Let them use the app now.
                 print("sign up new user is successfull")
+                //let's add some default tags here
+                TTHashTag.addHashTag("local news")
+                TTHashTag.addHashTag("shopping")
+                TTHashTag.addHashTag("TenTags")
+                
             }
             //sign in the user
             PFUser.logInWithUsernameInBackground(session.phoneNumber, password:session.phoneNumber) {

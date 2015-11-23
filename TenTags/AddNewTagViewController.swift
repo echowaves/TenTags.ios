@@ -10,6 +10,12 @@ import UIKit
 
 class AddNewTagViewController: UIViewController {
     
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addButton: UIButton!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,5 +26,8 @@ class AddNewTagViewController: UIViewController {
 //        self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
+    @IBAction func addButtonPressed(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 }
 

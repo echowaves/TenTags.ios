@@ -31,7 +31,7 @@
                                     <constraint firstAttribute="height" constant="14" id="6nv-0w-rgp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dzB-nv-9hu">
@@ -124,12 +124,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pus-zn-b3k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2755" y="477"/>
+            <point key="canvasLocation" x="2755" y="433"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yuO-AX-DN6">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kE1-mg-Yv2" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="vaB-Tx-iQ1" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="UqX-eD-MV1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -140,10 +139,11 @@
                         <segue destination="x4l-Je-tde" kind="relationship" relationship="rootViewController" id="ON7-ta-1mO"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kE1-mg-Yv2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3809" y="433"/>
         </scene>
-        <!--add new Tags-->
+        <!--add new Tag-->
         <scene sceneID="49B-na-fXf">
             <objects>
                 <viewController id="x4l-Je-tde" customClass="AddNewTagViewController" customModule="TenTags" sceneMemberID="viewController">
@@ -155,16 +155,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ie3-OD-8a1">
-                                <rect key="frame" x="16" y="255" width="568" height="80"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ie3-OD-8a1">
+                                <rect key="frame" x="16" y="260" width="568" height="80"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="7ud-2a-IVG"/>
+                                    <constraint firstAttribute="height" constant="80" id="kzn-q4-4AC"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="25"/>
+                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="45"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                <state key="normal" title="Search">
+                                <state key="normal" title="">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -174,28 +174,22 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addButtonPressed:" destination="x4l-Je-tde" eventType="touchUpInside" id="JeF-Nw-pO5"/>
+                                </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search for #hash_tags" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="kdy-Z0-uh9">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="#hash_tag to be added" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="kdy-Z0-uh9">
                                 <rect key="frame" x="16" y="66" width="568" height="50"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="3Ey-SP-UJe"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="4tP-h2-Tpp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Leave the search fied blank to browse everything around you." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZXr-Ek-deP">
-                                <rect key="frame" x="16" y="111" width="568" height="21"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="UyT-LM-IGG"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
-                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="sgQ-KY-V5g">
-                                <rect key="frame" x="16" y="124" width="568" height="123"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="sgQ-KY-V5g">
+                                <rect key="frame" x="16" y="124" width="568" height="128"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -215,17 +209,32 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Ie3-OD-8a1" firstAttribute="top" secondItem="sgQ-KY-V5g" secondAttribute="bottom" constant="8" id="iCR-L3-ZK1"/>
-                            <constraint firstItem="sgQ-KY-V5g" firstAttribute="top" secondItem="kdy-Z0-uh9" secondAttribute="bottom" constant="8" id="ldg-Dm-yhD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sgQ-KY-V5g" secondAttribute="trailing" constant="-4" id="ArQ-98-O8Y"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ie3-OD-8a1" secondAttribute="trailing" constant="-4" id="Dci-SE-NX3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kdy-Z0-uh9" secondAttribute="trailing" constant="-4" id="OUn-tY-aOw"/>
+                            <constraint firstItem="sgQ-KY-V5g" firstAttribute="leading" secondItem="aUM-ca-sFH" secondAttribute="leadingMargin" constant="-4" id="PZ9-aS-63L"/>
+                            <constraint firstItem="Ie3-OD-8a1" firstAttribute="top" secondItem="sgQ-KY-V5g" secondAttribute="bottom" constant="8" id="ZgB-9T-T2z"/>
+                            <constraint firstItem="Ie3-OD-8a1" firstAttribute="centerX" secondItem="aUM-ca-sFH" secondAttribute="centerX" id="hl1-V6-g2W"/>
+                            <constraint firstItem="Ie3-OD-8a1" firstAttribute="centerY" secondItem="aUM-ca-sFH" secondAttribute="centerY" id="k3e-7t-2Xh"/>
+                            <constraint firstItem="kdy-Z0-uh9" firstAttribute="leading" secondItem="aUM-ca-sFH" secondAttribute="leadingMargin" constant="-4" id="mqi-Uz-doI"/>
+                            <constraint firstItem="kdy-Z0-uh9" firstAttribute="top" secondItem="3GH-C4-sy2" secondAttribute="bottom" constant="2" id="nRA-8M-TD9"/>
+                            <constraint firstItem="sgQ-KY-V5g" firstAttribute="top" secondItem="kdy-Z0-uh9" secondAttribute="bottom" constant="8" id="rTO-bE-Mw0"/>
+                            <constraint firstItem="Ie3-OD-8a1" firstAttribute="leading" secondItem="aUM-ca-sFH" secondAttribute="leadingMargin" constant="-4" id="yKc-4U-4mP"/>
+                            <constraint firstItem="Ie3-OD-8a1" firstAttribute="top" secondItem="sgQ-KY-V5g" secondAttribute="bottom" constant="8" id="zCZ-3E-67w"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="add new Tags" id="naQ-Qu-KNV">
+                    <navigationItem key="navigationItem" title="add new Tag" id="naQ-Qu-KNV">
                         <barButtonItem key="leftBarButtonItem" image="back" id="bCS-M6-oS9">
                             <connections>
                                 <action selector="backButtonPressed:" destination="x4l-Je-tde" id="D02-qr-w9F"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addButton" destination="Ie3-OD-8a1" id="Ubg-Ed-jlY"/>
+                        <outlet property="tableView" destination="sgQ-KY-V5g" id="1Oo-Zv-Rem"/>
+                        <outlet property="textField" destination="kdy-Z0-uh9" id="vVq-r5-Z4w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g4n-wF-GvE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

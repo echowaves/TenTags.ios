@@ -17,6 +17,7 @@
 		0AAD0F9D1BFF686C001EE16B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AAD0F9B1BFF686C001EE16B /* Main.storyboard */; };
 		0AAD0F9F1BFF686C001EE16B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AAD0F9E1BFF686C001EE16B /* Assets.xcassets */; };
 		0AAD0FA21BFF686C001EE16B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AAD0FA01BFF686C001EE16B /* LaunchScreen.storyboard */; };
+		0ADFDE321C03813400538CCC /* TTHashTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADFDE311C03813400538CCC /* TTHashTag.swift */; };
 		0AE987601C00BE7600598F75 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE9875F1C00BE7600598F75 /* SignInViewController.swift */; };
 		0AE987621C0256A300598F75 /* NavTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE987611C0256A300598F75 /* NavTabBarController.swift */; };
 		9312FEFAAA5707DC2D795CAE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 018708EA628AAB9A1DA968AD /* libPods.a */; };
@@ -37,6 +38,7 @@
 		0AAD0F9E1BFF686C001EE16B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AAD0FA11BFF686C001EE16B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AAD0FA31BFF686C001EE16B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0ADFDE311C03813400538CCC /* TTHashTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTHashTag.swift; sourceTree = "<group>"; };
 		0AE9875F1C00BE7600598F75 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		0AE987611C0256A300598F75 /* NavTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavTabBarController.swift; sourceTree = "<group>"; };
 		130E84F3250B8173AAA159F7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 		0AAD0F961BFF686C001EE16B /* TenTags */ = {
 			isa = PBXGroup;
 			children = (
+				0ADFDE301C037F0100538CCC /* Model */,
 				0AAD0F971BFF686C001EE16B /* AppDelegate.swift */,
 				0AAD0F9B1BFF686C001EE16B /* Main.storyboard */,
 				0AAD0F9E1BFF686C001EE16B /* Assets.xcassets */,
@@ -91,6 +94,14 @@
 				0A2A38BE1C0014C100861741 /* TenTags-Bridging-Header.h */,
 			);
 			path = TenTags;
+			sourceTree = "<group>";
+		};
+		0ADFDE301C037F0100538CCC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0ADFDE311C03813400538CCC /* TTHashTag.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		88EB281F3C04E1E7FB204501 /* Pods */ = {
@@ -249,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AE987621C0256A300598F75 /* NavTabBarController.swift in Sources */,
+				0ADFDE321C03813400538CCC /* TTHashTag.swift in Sources */,
 				0A647BF51C029C8200511E88 /* NavController.swift in Sources */,
 				0AA222FF1BFF7FF0002D7A37 /* ThemViewController.swift in Sources */,
 				0AA222FD1BFF7FA7002D7A37 /* MeViewController.swift in Sources */,
