@@ -96,6 +96,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jXg-x9-8WP">
+                                <rect key="frame" x="0.0" y="64" width="600" height="411"/>
+                                <animations/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nPI-VN-SB0">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="tagCell" id="dqQ-RG-3zP">
+                                        <rect key="frame" x="0.0" y="64" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <animations/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <animations/>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="aCo-5x-VpB" id="5GO-SN-jsI"/>
+                                    <outlet property="delegate" destination="aCo-5x-VpB" id="YIY-bU-sIi"/>
+                                </connections>
+                            </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0SX-6H-V38">
                                 <rect key="frame" x="520" y="483" width="60" height="60"/>
                                 <animations/>
@@ -115,12 +142,20 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="jXg-x9-8WP" firstAttribute="leading" secondItem="YTR-Qy-ybh" secondAttribute="leadingMargin" constant="-20" id="2Bz-ef-ORR"/>
+                            <constraint firstItem="0SX-6H-V38" firstAttribute="top" secondItem="jXg-x9-8WP" secondAttribute="bottom" constant="8" id="6w2-Zp-4ey"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jXg-x9-8WP" secondAttribute="trailing" constant="-20" id="DLc-hO-rRw"/>
                             <constraint firstItem="0SX-6H-V38" firstAttribute="trailing" secondItem="YTR-Qy-ybh" secondAttribute="trailingMargin" id="Scs-ep-zOX"/>
                             <constraint firstItem="XjF-Re-y5o" firstAttribute="top" secondItem="0SX-6H-V38" secondAttribute="bottom" constant="8" id="ecR-Xc-Uro"/>
+                            <constraint firstItem="jXg-x9-8WP" firstAttribute="top" secondItem="ASO-bc-crA" secondAttribute="bottom" id="pvh-b5-s34"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="me" image="me" id="pSH-6Y-mMl"/>
                     <navigationItem key="navigationItem" title="my Tags" id="75k-fU-mTG"/>
+                    <connections>
+                        <outlet property="collectionView" destination="jXg-x9-8WP" id="u3i-zZ-05a"/>
+                        <outlet property="flowLayout" destination="nPI-VN-SB0" id="z5x-9S-UKl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pus-zn-b3k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

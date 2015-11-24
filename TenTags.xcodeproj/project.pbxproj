@@ -18,6 +18,9 @@
 		0AAD0F9F1BFF686C001EE16B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AAD0F9E1BFF686C001EE16B /* Assets.xcassets */; };
 		0AAD0FA21BFF686C001EE16B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AAD0FA01BFF686C001EE16B /* LaunchScreen.storyboard */; };
 		0ADFDE321C03813400538CCC /* TTHashTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADFDE311C03813400538CCC /* TTHashTag.swift */; };
+		0ADFDE341C03FE7F00538CCC /* TagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0ADFDE331C03FE7F00538CCC /* TagCell.xib */; };
+		0ADFDE361C0400F000538CCC /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADFDE351C0400F000538CCC /* TagCell.swift */; };
+		0ADFDE381C04056200538CCC /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADFDE371C04056200538CCC /* FlowLayout.swift */; };
 		0AE987601C00BE7600598F75 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE9875F1C00BE7600598F75 /* SignInViewController.swift */; };
 		0AE987621C0256A300598F75 /* NavTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE987611C0256A300598F75 /* NavTabBarController.swift */; };
 		9312FEFAAA5707DC2D795CAE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 018708EA628AAB9A1DA968AD /* libPods.a */; };
@@ -39,6 +42,9 @@
 		0AAD0FA11BFF686C001EE16B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AAD0FA31BFF686C001EE16B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0ADFDE311C03813400538CCC /* TTHashTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTHashTag.swift; sourceTree = "<group>"; };
+		0ADFDE331C03FE7F00538CCC /* TagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TagCell.xib; sourceTree = "<group>"; };
+		0ADFDE351C0400F000538CCC /* TagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
+		0ADFDE371C04056200538CCC /* FlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowLayout.swift; sourceTree = "<group>"; };
 		0AE9875F1C00BE7600598F75 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		0AE987611C0256A300598F75 /* NavTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavTabBarController.swift; sourceTree = "<group>"; };
 		130E84F3250B8173AAA159F7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -89,6 +95,9 @@
 				0A647BF41C029C8200511E88 /* NavController.swift */,
 				0AE987611C0256A300598F75 /* NavTabBarController.swift */,
 				0AA222FC1BFF7FA7002D7A37 /* MeViewController.swift */,
+				0ADFDE331C03FE7F00538CCC /* TagCell.xib */,
+				0ADFDE351C0400F000538CCC /* TagCell.swift */,
+				0ADFDE371C04056200538CCC /* FlowLayout.swift */,
 				0A647BF61C02BE5800511E88 /* AddNewTagViewController.swift */,
 				0AA222FE1BFF7FF0002D7A37 /* ThemViewController.swift */,
 				0A2A38BE1C0014C100861741 /* TenTags-Bridging-Header.h */,
@@ -185,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AAD0FA21BFF686C001EE16B /* LaunchScreen.storyboard in Resources */,
+				0ADFDE341C03FE7F00538CCC /* TagCell.xib in Resources */,
 				0AA222FA1BFF6BE9002D7A37 /* fontawesome-webfont.ttf in Resources */,
 				0AAD0F9F1BFF686C001EE16B /* Assets.xcassets in Resources */,
 				0AAD0F9D1BFF686C001EE16B /* Main.storyboard in Resources */,
@@ -259,8 +269,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0ADFDE381C04056200538CCC /* FlowLayout.swift in Sources */,
 				0AE987621C0256A300598F75 /* NavTabBarController.swift in Sources */,
 				0ADFDE321C03813400538CCC /* TTHashTag.swift in Sources */,
+				0ADFDE361C0400F000538CCC /* TagCell.swift in Sources */,
 				0A647BF51C029C8200511E88 /* NavController.swift in Sources */,
 				0AA222FF1BFF7FF0002D7A37 /* ThemViewController.swift in Sources */,
 				0AA222FD1BFF7FA7002D7A37 /* MeViewController.swift in Sources */,
