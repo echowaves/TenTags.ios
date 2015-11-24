@@ -79,6 +79,9 @@
                             <constraint firstItem="l9j-TT-WUU" firstAttribute="trailing" secondItem="4RE-ih-ALa" secondAttribute="trailingMargin" id="wQ5-Ty-3ha"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="verifyPhoneNumberButton" destination="dzB-nv-9hu" id="mjm-ZW-99r"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3XJ-07-fRz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

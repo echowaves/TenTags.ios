@@ -11,10 +11,12 @@ import DigitsKit
 
 class SignInViewController: UIViewController {
     
+    @IBOutlet weak var verifyPhoneNumberButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        Digits.sharedInstance().logOut()
+        Digits.sharedInstance().logOut()
         
         // Do any additional setup after loading the view, typically from a nib.
         
@@ -41,6 +43,9 @@ class SignInViewController: UIViewController {
     }
     
     func createOrloginUser(session: DGTSession) {
+        self.verifyPhoneNumberButton.enabled = false
+        
+        
         let user = PFUser()
         user.username = session.phoneNumber
         user.password = session.phoneNumber
@@ -61,7 +66,7 @@ class SignInViewController: UIViewController {
                 TTHashTag.addHashTag("Music")
                 TTHashTag.addHashTag("Poetry")
                 TTHashTag.addHashTag("Tech")
-                TTHashTag.addHashTag("Food")                
+                TTHashTag.addHashTag("Food")
             }
             //sign in the user
             PFUser.logInWithUsernameInBackground(session.phoneNumber, password:session.phoneNumber) {

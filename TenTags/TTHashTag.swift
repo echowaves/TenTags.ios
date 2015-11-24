@@ -14,7 +14,8 @@ class TTHashTag: NSObject {
     let hashTag = "hashTag" //: String
     
     
-    class func addHashTag(hashTagString: String) -> () {
+    class func addHashTag(var hashTagString: String) -> () {
+        hashTagString = hashTagString.lowercaseString
         do {
             PFUser.currentUser()?.addUniqueObject(hashTagString, forKey:"hashTags" )
             try PFUser.currentUser()?.save()
