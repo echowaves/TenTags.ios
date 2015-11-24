@@ -15,19 +15,8 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        Digits.sharedInstance().logOut()
-        
         // Do any additional setup after loading the view, typically from a nib.
-        
-        if let session = Digits.sharedInstance().session() {
-            print("session established: \(session.description)")
-            print("session established phone number: \(session.phoneNumber)")
-            createOrloginUser(session)
-        } else {
-            print("no session found")
-        }
-        
+        self.navigationItem.setHidesBackButton(true, animated: false)
     }
     
     @IBAction func verifyPhoneNumberButtonClicked(sender: AnyObject) {
@@ -37,14 +26,13 @@ class SignInViewController: UIViewController {
             if(session != nil) {
                 print("new session: \(session.description)")
                 print("new session phone number: \(session.phoneNumber)")
-                self.createOrloginUser(session)
+                SignInViewController.createOrloginUser(session)
+                self.navigationController?.popToRootViewControllerAnimated(true)
             }
         }
     }
     
-    func createOrloginUser(session: DGTSession) {
-        self.verifyPhoneNumberButton.enabled = false
-        
+    class func createOrloginUser(session: DGTSession) {
         
         let user = PFUser()
         user.username = session.phoneNumber
@@ -75,15 +63,15 @@ class SignInViewController: UIViewController {
                     // Do stuff after successful login.
                     print("signed in as: \(PFUser.currentUser()!.username!)")
                     // instantiate next view controller
-                    let navController = self.storyboard?.instantiateViewControllerWithIdentifier("navController") as! NavController
+                    //                    let navController = self.storyboard?.instantiateViewControllerWithIdentifier("navController") as! NavController
+                    //
+                    //                    if var topController = UIApplication.sharedApplication().keyWindow?.rootViewController {
+                    //                        while let presentedViewController = topController.presentedViewController {
+                    //                            topController = presentedViewController
+                    //                        }
+                    //                        topController.presentViewController(navController, animated: false, completion: nil)
+                    //                    }
                     
-                    if var topController = UIApplication.sharedApplication().keyWindow?.rootViewController {
-                        while let presentedViewController = topController.presentedViewController {
-                            topController = presentedViewController
-                        }
-                        topController.presentViewController(navController, animated: false, completion: nil)
-                    }
-
                 } else {
                     // The login failed. Check error to see why.
                     print("signin in failed....")
@@ -91,6 +79,6 @@ class SignInViewController: UIViewController {
             }
         }
     }
-    
+
 }
 
