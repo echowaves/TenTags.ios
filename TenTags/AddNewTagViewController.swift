@@ -39,7 +39,7 @@ class AddNewTagViewController: UIViewController, UITextFieldDelegate {
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange,
         replacementString string: String) -> Bool
     {
-        let maxLength = 30
+        let maxLength = 50
         let currentString: NSString = textField.text!
         let newString: NSString =
         currentString.stringByReplacingCharactersInRange(range, withString: string)
