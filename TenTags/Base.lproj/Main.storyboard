@@ -351,8 +351,23 @@
                     <view key="view" contentMode="scaleToFill" id="bY2-5e-kl6">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="mVC-QS-2pz">
+                                <rect key="frame" x="282" y="281" width="37" height="37"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="EJw-qb-bKJ"/>
+                                    <constraint firstAttribute="width" constant="37" id="qv5-YD-Zoo"/>
+                                </constraints>
+                                <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mVC-QS-2pz" firstAttribute="centerY" secondItem="bY2-5e-kl6" secondAttribute="centerY" id="NJF-nt-OgT"/>
+                            <constraint firstItem="mVC-QS-2pz" firstAttribute="centerX" secondItem="bY2-5e-kl6" secondAttribute="centerX" id="fwW-Ju-Qx1"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nfa-ph-YqC" userLabel="First Responder" sceneMemberID="firstResponder"/>

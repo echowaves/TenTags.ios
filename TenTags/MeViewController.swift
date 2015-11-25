@@ -20,10 +20,21 @@ class MeViewController: UIViewController,UICollectionViewDataSource {
     
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        do {
+            try PFUser.currentUser()?.fetch()
+        } catch {
+            print("error refreshing current user")
+        }
+        TAGS = PFUser.currentUser()?.objectForKey("hashTags") as? NSArray
+        self.collectionView.reloadData()
+        print("loading tags")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        TAGS = PFUser.currentUser()?.objectForKey("hashTags") as? NSArray
         
         // Do any additional setup after loading the view, typically from a nib.
         let cellNib = UINib(nibName: "TagCell", bundle: nil)
@@ -57,8 +68,32 @@ class MeViewController: UIViewController,UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         collectionView.deselectItemAtIndexPath(indexPath, animated: false)
-//        tags[indexPath.row].selected = !tags[indexPath.row].selected
         print("tag selected \(TAGS![indexPath.row])")
+        
+        
+        let actionSheetController: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        
+        //Create and add the Cancel action
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
+            //Just dismiss the action sheet
+        }
+        actionSheetController.addAction(cancelAction)
+        //Create and add a second option action
+        let choosePictureAction: UIAlertAction = UIAlertAction(title: "delete #\(TAGS![indexPath.row])", style: .Default) { action -> Void in
+
+            PFUser.currentUser()?.removeObjectsInArray([self.TAGS![indexPath.row]], forKey: "hashTags")
+            PFUser.currentUser()?.saveInBackground()
+
+            self.TAGS = PFUser.currentUser()?.objectForKey("hashTags") as? NSArray
+            self.collectionView.reloadData()
+            self.collectionView.reloadInputViews()
+        }
+        actionSheetController.addAction(choosePictureAction)
+        
+        //Present the AlertController
+        self.presentViewController(actionSheetController, animated: true, completion: nil)
+
+        
         self.collectionView.reloadData()
     }
 
