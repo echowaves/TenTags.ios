@@ -270,6 +270,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="Ie3-OD-8a1" id="Ubg-Ed-jlY"/>
+                        <outlet property="autocompleteTableView" destination="sgQ-KY-V5g" id="Ykx-V8-h42"/>
                         <outlet property="tableView" destination="sgQ-KY-V5g" id="1Oo-Zv-Rem"/>
                         <outlet property="textField" destination="kdy-Z0-uh9" id="vVq-r5-Z4w"/>
                     </connections>
