@@ -20,13 +20,13 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func verifyPhoneNumberButtonClicked(sender: AnyObject) {
-        verifyPhoneNumberButton.enabled = false
         let digits = Digits.sharedInstance()
         digits.authenticateWithCompletion { (session, error) in
             // Inspect session/error objects
             if(session != nil) {
                 print("new session: \(session.description)")
                 print("new session phone number: \(session.phoneNumber)")
+                self.verifyPhoneNumberButton.hidden = true
                 self.createOrloginUser(self, session: session)
                 self.navigationController?.popToRootViewControllerAnimated(true)
             }

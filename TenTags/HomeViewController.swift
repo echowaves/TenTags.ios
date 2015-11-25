@@ -14,7 +14,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//                Digits.sharedInstance().logOut()
+//        Digits.sharedInstance().logOut()
     }
     
     
