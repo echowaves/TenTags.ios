@@ -20,19 +20,20 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func verifyPhoneNumberButtonClicked(sender: AnyObject) {
+        verifyPhoneNumberButton.enabled = false
         let digits = Digits.sharedInstance()
         digits.authenticateWithCompletion { (session, error) in
             // Inspect session/error objects
             if(session != nil) {
                 print("new session: \(session.description)")
                 print("new session phone number: \(session.phoneNumber)")
-                SignInViewController.createOrloginUser(session)
+                self.createOrloginUser(self, session: session)
                 self.navigationController?.popToRootViewControllerAnimated(true)
             }
         }
     }
     
-    class func createOrloginUser(session: DGTSession) {
+    func createOrloginUser(caller: UIViewController, session: DGTSession) {
         
         let user = PFUser()
         user.username = session.phoneNumber
@@ -71,6 +72,12 @@ class SignInViewController: UIViewController {
                     //                        }
                     //                        topController.presentViewController(navController, animated: false, completion: nil)
                     //                    }
+                    
+                    let navController = self.storyboard?.instantiateViewControllerWithIdentifier("NavController") as! NavController
+                    caller.presentViewController(navController, animated: true, completion: { () -> Void in
+                        print("finished presenting navController")
+                    })
+
                     
                 } else {
                     // The login failed. Check error to see why.
