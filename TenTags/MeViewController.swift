@@ -23,7 +23,7 @@ class MeViewController: UIViewController,UICollectionViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        TAGS = PFUser.currentUser()?.objectForKey("hashTags") as? NSArray
+        TAGS = PFUser.currentUser()?.objectForKey("hashTags") as? NSArray
         
         // Do any additional setup after loading the view, typically from a nib.
         let cellNib = UINib(nibName: "TagCell", bundle: nil)
@@ -53,6 +53,13 @@ class MeViewController: UIViewController,UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         self.configureCell(self.sizingCell!, forIndexPath: indexPath)
         return self.sizingCell!.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        collectionView.deselectItemAtIndexPath(indexPath, animated: false)
+//        tags[indexPath.row].selected = !tags[indexPath.row].selected
+        print("tag selected \(TAGS![indexPath.row])")
+        self.collectionView.reloadData()
     }
 
 }
