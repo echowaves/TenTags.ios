@@ -113,8 +113,7 @@ class ThemViewController: UIViewController, CLLocationManagerDelegate {
 //            kCLLocationAccuracyThreeKilometers]
 //        
 //        locationManager.desiredAccuracy = accuracyValues[sender.selectedSegmentIndex];
-//    }
-    
+//    }    
 //    @IBAction func enabledChanged(sender: UISwitch) {
 //        if sender.on {
 //            locationManager.startUpdatingLocation()
