@@ -63,7 +63,22 @@ class TTUser: NSObject {
         PFUser.logOut()
         let user = PFUser()
         
-         var uuid = ""
+        var uuid = ""
+        if getStoredCredential() != nil {
+            uuid = (getStoredCredential()?.user)!
+        } else {
+            uuid = NSUUID().UUIDString
+            storeCredential(uuid)
+        }
+
+        
+        
+        do {
+            try PFUser.logInWithUsername(uuid, password: uuid)
+        } catch {
+            // login failed, let's reset credentials
+            clearStoredCredential()
+        }
         
         if getStoredCredential() == nil {
             uuid = NSUUID().UUIDString
@@ -85,7 +100,6 @@ class TTUser: NSObject {
         
         uuid = (getStoredCredential()?.user)!
         
-        PFUser.logInWithUsernameInBackground(uuid, password:uuid)
     }
     
     class func clearStoredCredential() -> Void  {
