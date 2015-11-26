@@ -35,7 +35,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="tagCell" id="dqQ-RG-3zP">
-                                        <rect key="frame" x="0.0" y="64" width="50" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -197,10 +197,10 @@
             </objects>
             <point key="canvasLocation" x="3759" y="438"/>
         </scene>
-        <!--Nav Controller-->
+        <!--Navigation Controller-->
         <scene sceneID="7sW-TP-8E4">
             <objects>
-                <navigationController id="dpU-de-KY1" customClass="NavController" customModule="TenTags" sceneMemberID="viewController">
+                <navigationController id="dpU-de-KY1" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="feQ-Wd-MiX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -212,7 +212,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yvp-yT-esw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1485" y="877"/>
+            <point key="canvasLocation" x="1483" y="842"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="3Q4-22-AAD">

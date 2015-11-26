@@ -35,6 +35,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+            TTUser.createOrloginUser()
+        
+
         
         // Do any additional setup after loading the view, typically from a nib.
         
@@ -154,6 +157,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
 //            NSLog("App is backgrounded. New location is %@", newLocation)
 //        }
     }
+    
+    
+    
     
 }
 

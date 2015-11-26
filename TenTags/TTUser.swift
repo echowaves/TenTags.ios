@@ -16,49 +16,82 @@ class TTUser: NSObject {
     
     
     
-//    class func tenTagsProtectionSpace() -> (NSURLProtectionSpace) {
-//        let url:NSURL = NSURL(string: "http://tentags.com")!
-//        
-//        
-//        let protSpace =
-//        NSURLProtectionSpace(
-//            host: url.host!,
-//            port: 80,
-//            `protocol`: url.scheme,
-//            realm: nil,
-//            authenticationMethod: nil)
-//        
-//        println("prot space: \(protSpace)")
-//        return protSpace
-//    }
-//    
-//    class func storeCredential(waveName: String, wavePassword:String)  -> () {
-//        let protSpace = EWWave.echowavesProtectionSpace()
-//        
-//        if let credentials: NSDictionary = NSURLCredentialStorage.sharedCredentialStorage().credentialsForProtectionSpace(protSpace) {
-//            
-//            //remove all credentials
-//            for credentialKey in credentials {
-//                let credential = (credentials.objectForKey(credentialKey.key) as NSURLCredential)
-//                NSURLCredentialStorage.sharedCredentialStorage().removeCredential(credential, forProtectionSpace: protSpace)
-//            }
-//        }
-//        //store new credential
-//        let credential = NSURLCredential(user: waveName, password: wavePassword, persistence: NSURLCredentialPersistence.Permanent)
-//        NSURLCredentialStorage.sharedCredentialStorage().setCredential(credential, forProtectionSpace: protSpace)
-//        
-//    }
-//    
-//    
-//    class func getStoredCredential() -> (NSURLCredential?)  {
-//        //check if credentials are already stored, then show it in the tune in fields
-//        
-//        if let credentials: NSDictionary? = NSURLCredentialStorage.sharedCredentialStorage().credentialsForProtectionSpace(EWWave.echowavesProtectionSpace()) {
-//            return credentials?.objectEnumerator().nextObject() as NSURLCredential?
-//        }
-//        return nil
-//    }
-//
-//    
+    class func tenTagsProtectionSpace() -> (NSURLProtectionSpace) {
+        let url:NSURL = NSURL(string: "http://tentags.com")!
+        
+        
+        let protSpace =
+        NSURLProtectionSpace(
+            host: url.host!,
+            port: 80,
+            `protocol`: url.scheme,
+            realm: nil,
+            authenticationMethod: nil)
+        
+        print("prot space: \(protSpace)")
+        return protSpace
+    }
+    
+    class func storeCredential(uuid:String)  -> () {
+        let protSpace = TTUser.tenTagsProtectionSpace()
+        
+        if let credentials: NSDictionary = NSURLCredentialStorage.sharedCredentialStorage().credentialsForProtectionSpace(protSpace) {
+            
+            //remove all credentials
+            for credentialKey in credentials {
+                let credential = (credentials.objectForKey(credentialKey.key) as! NSURLCredential)
+                NSURLCredentialStorage.sharedCredentialStorage().removeCredential(credential, forProtectionSpace: protSpace)
+            }
+        }
+        //store new credential
+        let credential = NSURLCredential(user: uuid, password: uuid, persistence: NSURLCredentialPersistence.Permanent)
+        NSURLCredentialStorage.sharedCredentialStorage().setCredential(credential, forProtectionSpace: protSpace)
+    }
+    
+    
+    class func getStoredCredential() -> (NSURLCredential?)  {
+        //check if credentials are already stored, then show it in the tune in fields
+        
+        if let credentials: NSDictionary? = NSURLCredentialStorage.sharedCredentialStorage().credentialsForProtectionSpace(TTUser.tenTagsProtectionSpace()) {
+            return credentials?.objectEnumerator().nextObject() as! NSURLCredential?
+        }
+        return nil
+    }
+
+    class func createOrloginUser() {
+//        clearStoredCredential()
+        PFUser.logOut()
+        let user = PFUser()
+        
+         var uuid = ""
+        
+        if getStoredCredential() == nil {
+            uuid = NSUUID().UUIDString
+            storeCredential(uuid)
+            user.username = uuid
+            user.password = uuid
+            do {
+                try user.signUp()
+                TTHashTag.addHashTag("Local News")
+                TTHashTag.addHashTag("Shopping")
+                TTHashTag.addHashTag("Music")
+                TTHashTag.addHashTag("Poetry")
+                TTHashTag.addHashTag("Tech")
+                TTHashTag.addHashTag("Food")
+            } catch {
+                NSLog("user sign up failed")
+            }
+        }
+        
+        uuid = (getStoredCredential()?.user)!
+        
+        PFUser.logInWithUsernameInBackground(uuid, password:uuid)
+    }
+    
+    class func clearStoredCredential() -> Void  {
+        //check if credentials are already stored, then show it in the tune in fields
+        NSURLCredentialStorage.sharedCredentialStorage().removeCredential(getStoredCredential()!, forProtectionSpace: tenTagsProtectionSpace())
+    }
+
     
 }
