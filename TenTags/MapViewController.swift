@@ -11,7 +11,7 @@ import MapKit
 import CoreLocation
 
 
-class ThemViewController: UIViewController, CLLocationManagerDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -25,6 +25,13 @@ class ThemViewController: UIViewController, CLLocationManagerDelegate {
         manager.requestAlwaysAuthorization()
         return manager
     }()
+    
+    @IBAction func buttonPushed(sender: AnyObject) {
+        let myTagsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MyTagsViewController") as! MyTagsViewController
+        presentViewController(myTagsViewController, animated: true, completion: { () -> Void in
+        })
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
