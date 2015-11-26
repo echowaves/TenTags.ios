@@ -19,7 +19,8 @@ class ThemViewController: UIViewController, CLLocationManagerDelegate {
 
     lazy var locationManager: CLLocationManager! = {
         let manager = CLLocationManager()
-        manager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters//kCLLocationAccuracyBest
+        manager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+//        manager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         manager.delegate = self
         manager.requestAlwaysAuthorization()
         return manager
@@ -35,7 +36,7 @@ class ThemViewController: UIViewController, CLLocationManagerDelegate {
 //            
 //            if((error) != nil){
 //                
-//                print("Error", error)
+//                NSLog("Error", error)
 //            }
 //                
 //            else if let placemark = placemarks![0] as? CLPlacemark {
@@ -51,32 +52,76 @@ class ThemViewController: UIViewController, CLLocationManagerDelegate {
 //                self.mapView?.centerCoordinate = coordinates
 //                self.mapView?.selectAnnotation(pointAnnotation, animated: true)
 //                
-//                print("Added annotation to map view")
+//                NSLog("Added annotation to map view")
 //            }
 //            
 //        })
+//        locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation        
         
+        
+        switch CLLocationManager.authorizationStatus() {
+        case .AuthorizedAlways:
+            locationManager.startUpdatingLocation()
+            locationManager.startMonitoringVisits()
+            // ...
+        case .NotDetermined:
+            locationManager.requestAlwaysAuthorization()
+        case .AuthorizedWhenInUse, .Restricted, .Denied:
+            let alertController = UIAlertController(
+                title: "Background Location Access Disabled",
+                message: "In order to be notified about adorable taggers near you, please open this app's settings and set location access to 'Always'.",
+                preferredStyle: .Alert)
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+            alertController.addAction(cancelAction)
+            
+            let openAction = UIAlertAction(title: "Open Settings", style: .Default) { (action) in
+                if let url = NSURL(string:UIApplicationOpenSettingsURLString) {
+                    UIApplication.sharedApplication().openURL(url)
+                }
+            }
+            alertController.addAction(openAction)
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
+        
+        
+        
+//        if CLLocationManager.authorizationStatus() == .NotDetermined {
+//            locationManager.requestAlwaysAuthorization()
+//        }
+//        
+//        if CLLocationManager.locationServicesEnabled() {
+//            locationManager.startUpdatingLocation()
+//        }
     }
 
-    @IBAction func accuracyChanged(sender: UISegmentedControl) {
-        let accuracyValues = [
-            kCLLocationAccuracyBestForNavigation,
-            kCLLocationAccuracyBest,
-            kCLLocationAccuracyNearestTenMeters,
-            kCLLocationAccuracyHundredMeters,
-            kCLLocationAccuracyKilometer,
-            kCLLocationAccuracyThreeKilometers]
-        
-        locationManager.desiredAccuracy = accuracyValues[sender.selectedSegmentIndex];
-    }
-    
-    @IBAction func enabledChanged(sender: UISwitch) {
-        if sender.on {
-            locationManager.startUpdatingLocation()
-        } else {
-            locationManager.stopUpdatingLocation()
+    func locationManager(manager: CLLocationManager,
+        didChangeAuthorizationStatus status: CLAuthorizationStatus)
+    {
+        if status == .AuthorizedAlways || status == .AuthorizedWhenInUse {
+            manager.startUpdatingLocation()
         }
     }
+//    @IBAction func accuracyChanged(sender: UISegmentedControl) {
+//        let accuracyValues = [
+//            kCLLocationAccuracyBestForNavigation,
+//            kCLLocationAccuracyBest,
+//            kCLLocationAccuracyNearestTenMeters,
+//            kCLLocationAccuracyHundredMeters,
+//            kCLLocationAccuracyKilometer,
+//            kCLLocationAccuracyThreeKilometers]
+//        
+//        locationManager.desiredAccuracy = accuracyValues[sender.selectedSegmentIndex];
+//    }
+    
+//    @IBAction func enabledChanged(sender: UISwitch) {
+//        if sender.on {
+//            locationManager.startUpdatingLocation()
+//        } else {
+//            locationManager.stopUpdatingLocation()
+//        }
+//    }
     
     func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
         // Add another annotation to the map.
@@ -97,6 +142,7 @@ class ThemViewController: UIViewController, CLLocationManagerDelegate {
         
         if UIApplication.sharedApplication().applicationState == .Active {
             mapView.showAnnotations(locations, animated: true)
+            NSLog("App is active. New location is %@", newLocation)
         } else {
             NSLog("App is backgrounded. New location is %@", newLocation)
         }

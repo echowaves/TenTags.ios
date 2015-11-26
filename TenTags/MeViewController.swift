@@ -25,11 +25,11 @@ class MeViewController: UIViewController,UICollectionViewDataSource {
         do {
             try PFUser.currentUser()?.fetch()
         } catch {
-            print("error refreshing current user")
+            NSLog("error refreshing current user")
         }
         TAGS = PFUser.currentUser()?.objectForKey("hashTags") as? NSArray
         self.collectionView.reloadData()
-        print("loading tags")
+        NSLog("loading tags")
     }
     
     override func viewDidLoad() {
@@ -68,7 +68,7 @@ class MeViewController: UIViewController,UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         collectionView.deselectItemAtIndexPath(indexPath, animated: false)
-        print("tag selected \(TAGS![indexPath.row])")
+        NSLog("tag selected \(TAGS![indexPath.row])")
         
         
         let actionSheetController: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)

@@ -96,7 +96,7 @@ class AddNewTagViewController: UIViewController, UITextFieldDelegate, UITableVie
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         autocompleteTableView.hidden = true
-        print("You selected cell #\(self.completions[indexPath.row])!")
+        NSLog("You selected cell #\(self.completions[indexPath.row])!")
         textField.text = self.completions[indexPath.row]
     }
     

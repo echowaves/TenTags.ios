@@ -24,13 +24,13 @@ class HomeViewController: UIViewController {
         
         // Do any additional setup after loading the view, typically from a nib.
         if let session = Digits.sharedInstance().session() {
-            print("session established: \(session.description)")
-            print("session established phone number: \(session.phoneNumber)")
+            NSLog("session established: \(session.description)")
+            NSLog("session established phone number: \(session.phoneNumber)")
             signInViewController.createOrloginUser(self, session: session)
         } else {
-            print("no session found, validating the device phone number")
+            NSLog("no session found, validating the device phone number")
             presentViewController(signInViewController, animated: true, completion: { () -> Void in
-                print("finished signing in")
+                NSLog("finished signing in")
             })
         }
     }

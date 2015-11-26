@@ -24,8 +24,8 @@ class SignInViewController: UIViewController {
         digits.authenticateWithCompletion { (session, error) in
             // Inspect session/error objects
             if(session != nil) {
-                print("new session: \(session.description)")
-                print("new session phone number: \(session.phoneNumber)")
+                NSLog("new session: \(session.description)")
+                NSLog("new session phone number: \(session.phoneNumber)")
                 self.verifyPhoneNumberButton.hidden = true
                 self.createOrloginUser(self, session: session)
                 self.navigationController?.popToRootViewControllerAnimated(true)
@@ -45,10 +45,10 @@ class SignInViewController: UIViewController {
             if let error = error {
                 let errorString = error.userInfo["error"] as? NSString
                 // Show the errorString somewhere and let the user try again.
-                print("error signing up: \(errorString!)")
+                NSLog("error signing up: \(errorString!)")
             } else {
                 // Hooray! Let them use the app now.
-                print("sign up new user is successfull")
+                NSLog("sign up new user is successfull")
                 //let's add some default tags here
                 TTHashTag.addHashTag("Local News")
                 TTHashTag.addHashTag("Shopping")
@@ -62,7 +62,7 @@ class SignInViewController: UIViewController {
                 (user: PFUser?, error: NSError?) -> Void in
                 if user != nil {
                     // Do stuff after successful login.
-                    print("signed in as: \(PFUser.currentUser()!.username!)")
+                    NSLog("signed in as: \(PFUser.currentUser()!.username!)")
                     // instantiate next view controller
                     //                    let navController = self.storyboard?.instantiateViewControllerWithIdentifier("navController") as! NavController
                     //
@@ -75,13 +75,13 @@ class SignInViewController: UIViewController {
                     
                     let navController = self.storyboard?.instantiateViewControllerWithIdentifier("NavController") as! NavController
                     caller.presentViewController(navController, animated: true, completion: { () -> Void in
-                        print("finished presenting navController")
+                        NSLog("finished presenting navController")
                     })
 
                     
                 } else {
                     // The login failed. Check error to see why.
-                    print("signin in failed....")
+                    NSLog("signin in failed....")
                 }
             }
         }
