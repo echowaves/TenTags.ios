@@ -28,13 +28,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func buttonPushed(sender: AnyObject) {
         let myTagsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MyTagsViewController") as! MyTagsViewController
-        presentViewController(myTagsViewController, animated: true, completion: { () -> Void in
-        })
+        navigationController?.pushViewController(myTagsViewController, animated: true)
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
         
 //        let location = "1 Infinity Loop, Cupertino, CA"
@@ -138,20 +139,20 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         locations.append(annotation)
         
         // Remove values if the array is too big
-        while locations.count > 100 {
-            let annotationToRemove = locations.first!
-            locations.removeAtIndex(0)
-            
-            // Also remove from the map
-            mapView.removeAnnotation(annotationToRemove)
-        }
+//        while locations.count > 100 {
+//            let annotationToRemove = locations.first!
+//            locations.removeAtIndex(0)
+//            
+//            // Also remove from the map
+//            mapView.removeAnnotation(annotationToRemove)
+//        }
         
-        if UIApplication.sharedApplication().applicationState == .Active {
-            mapView.showAnnotations(locations, animated: true)
-            NSLog("App is active. New location is %@", newLocation)
-        } else {
-            NSLog("App is backgrounded. New location is %@", newLocation)
-        }
+//        if UIApplication.sharedApplication().applicationState == .Active {
+//            mapView.showAnnotations(locations, animated: true)
+//            NSLog("App is active. New location is %@", newLocation)
+//        } else {
+//            NSLog("App is backgrounded. New location is %@", newLocation)
+//        }
     }
     
 }

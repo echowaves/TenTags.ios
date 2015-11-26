@@ -20,6 +20,12 @@ class MyTagsViewController: UIViewController,UICollectionViewDataSource {
     
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
+    @IBAction func backButtonPressed(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         do {

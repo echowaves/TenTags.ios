@@ -14,6 +14,9 @@ class AddNewTagViewController: UIViewController, UITextFieldDelegate, UITableVie
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addButton: UIButton!
     
+    @IBAction func backButtonPressed(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
     
     @IBOutlet weak var autocompleteTableView: UITableView!
     var completions = [String]()
@@ -40,16 +43,12 @@ class AddNewTagViewController: UIViewController, UITextFieldDelegate, UITableVie
 
     }
     
-    @IBAction func backButtonPressed(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
-//        self.navigationController?.popToRootViewControllerAnimated(true)
-    }
     
     @IBAction func addButtonPressed(sender: AnyObject) {
         if (textField.text != nil && textField.text!.characters.count > 0) {
             TTHashTag.addHashTag(textField.text!)
         }
-        dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     

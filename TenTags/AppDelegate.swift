@@ -11,9 +11,9 @@ import UIKit
 //import Bolts
 import Fabric
 import Crashlytics
-import TwitterKit
 //import TwitterCore
-import DigitsKit
+//import DigitsKit
+//import TwitterKit
 
 
 
@@ -58,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // [Optional] Track statistics around application opens.
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         
-        Fabric.with([Twitter(), Crashlytics(), Digits()])
+        Fabric.with([Crashlytics()])
 
         return true
     }
