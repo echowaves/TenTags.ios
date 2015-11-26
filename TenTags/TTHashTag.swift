@@ -34,10 +34,12 @@ class TTHashTag: NSObject {
     }
     
     class func autoComplete(
-        searchText: String,
+        var searchText: String,
         succeeded:(results:[String]) -> (),
         failed:(error: NSError!) -> ()
         ) -> () {
+            searchText = searchText.lowercaseString
+
             let queryTag = PFQuery(className:TTHASHTAG.CLASS_NAME)
             queryTag.whereKey(TTHASHTAG.hashTag, hasPrefix:searchText)
             // Limit what could be a lot of points.

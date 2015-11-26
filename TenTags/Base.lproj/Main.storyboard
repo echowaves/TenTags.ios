@@ -24,6 +24,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="yS5-Cd-Kt3">
+                                <rect key="frame" x="282" y="281" width="37" height="37"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="37" id="eDf-Co-R1d"/>
+                                    <constraint firstAttribute="width" constant="37" id="fUL-Ca-cZ8"/>
+                                    <constraint firstAttribute="height" constant="37" id="fgg-JU-8W6"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="37" id="qpK-ka-gOl"/>
+                                </constraints>
+                                <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We need to make sure you are human" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9za-zB-zZN">
                                 <rect key="frame" x="20" y="347" width="560" height="14"/>
                                 <animations/>
@@ -71,11 +82,13 @@
                             <constraint firstItem="9za-zB-zZN" firstAttribute="top" secondItem="dzB-nv-9hu" secondAttribute="bottom" constant="8" id="1os-ic-vwI"/>
                             <constraint firstItem="dzB-nv-9hu" firstAttribute="leading" secondItem="4RE-ih-ALa" secondAttribute="leadingMargin" id="4df-HR-GGW"/>
                             <constraint firstItem="9za-zB-zZN" firstAttribute="leading" secondItem="4RE-ih-ALa" secondAttribute="leadingMargin" id="7ko-Kb-E3u"/>
+                            <constraint firstItem="yS5-Cd-Kt3" firstAttribute="centerY" secondItem="4RE-ih-ALa" secondAttribute="centerY" id="AwT-IU-2Yd"/>
                             <constraint firstItem="dzB-nv-9hu" firstAttribute="trailing" secondItem="4RE-ih-ALa" secondAttribute="trailingMargin" id="NfU-7p-4JK"/>
                             <constraint firstItem="9za-zB-zZN" firstAttribute="trailing" secondItem="4RE-ih-ALa" secondAttribute="trailingMargin" id="O7a-2E-n1E"/>
                             <constraint firstItem="l9j-TT-WUU" firstAttribute="leading" secondItem="4RE-ih-ALa" secondAttribute="leadingMargin" id="VQI-k0-3Mz"/>
                             <constraint firstItem="dzB-nv-9hu" firstAttribute="top" secondItem="l9j-TT-WUU" secondAttribute="bottom" constant="8" id="eQs-1K-ZFG"/>
                             <constraint firstItem="dzB-nv-9hu" firstAttribute="centerY" secondItem="4RE-ih-ALa" secondAttribute="centerY" id="glA-6E-7fs"/>
+                            <constraint firstItem="yS5-Cd-Kt3" firstAttribute="centerX" secondItem="4RE-ih-ALa" secondAttribute="centerX" id="l1n-XO-xzm"/>
                             <constraint firstItem="l9j-TT-WUU" firstAttribute="trailing" secondItem="4RE-ih-ALa" secondAttribute="trailingMargin" id="wQ5-Ty-3ha"/>
                         </constraints>
                     </view>
@@ -326,8 +339,25 @@
                     <view key="view" contentMode="scaleToFill" id="o5x-v9-bRL">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming soon..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6LX-qD-hcT">
+                                <rect key="frame" x="243" y="289" width="115" height="21"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="115" id="2Yf-We-K4B"/>
+                                    <constraint firstAttribute="height" constant="21" id="DTZ-yr-t6G"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6LX-qD-hcT" firstAttribute="centerX" secondItem="o5x-v9-bRL" secondAttribute="centerX" id="cUE-N6-lgf"/>
+                            <constraint firstItem="6LX-qD-hcT" firstAttribute="centerY" secondItem="o5x-v9-bRL" secondAttribute="centerY" id="ury-3Z-hvd"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Chats" id="bzK-Ir-hS4">
                         <barButtonItem key="leftBarButtonItem" image="back" id="uw0-Ph-1L2">
