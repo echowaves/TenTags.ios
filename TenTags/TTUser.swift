@@ -76,13 +76,7 @@ class TTUser: NSObject {
         do {
             try PFUser.logInWithUsername(uuid, password: uuid)
         } catch {
-            // login failed, let's reset credentials
-            clearStoredCredential()
-        }
-        
-        if getStoredCredential() == nil {
-            uuid = NSUUID().UUIDString
-            storeCredential(uuid)
+            // login failed, let's create new user
             user.username = uuid
             user.password = uuid
             do {
@@ -93,12 +87,11 @@ class TTUser: NSObject {
                 TTHashTag.addHashTag("Poetry")
                 TTHashTag.addHashTag("Tech")
                 TTHashTag.addHashTag("Food")
+                try PFUser.logInWithUsername(uuid, password: uuid)
             } catch {
                 NSLog("user sign up failed")
             }
         }
-        
-        uuid = (getStoredCredential()?.user)!
         
     }
     

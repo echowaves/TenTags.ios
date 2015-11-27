@@ -16,21 +16,14 @@ class TTHashTag: NSObject {
     
     class func addHashTag(var hashTagString: String) -> () {
         hashTagString = hashTagString.lowercaseString
-        do {
-            PFUser.currentUser()?.addUniqueObject(hashTagString, forKey:"hashTags" )
-            try PFUser.currentUser()?.save()
-        } catch {
-            print("Error saving hasTag to the user")
-        }
-        //just add to tags table, we will check for duplicates in beforesave.
-        do {
-            let hashTag = PFObject(className: TTHASHTAG.CLASS_NAME)
-            hashTag[TTHASHTAG.hashTag] = hashTagString
-            try hashTag.save()
-        } catch {
-            print("Error saving new hastag")
-        }
-        
+        PFUser.currentUser()?.addUniqueObject(hashTagString, forKey:"hashTags" )
+        PFUser.currentUser()?.saveInBackgroundWithBlock({ (success:Bool, error: NSError?) -> Void in
+            if success == true {
+                let hashTag = PFObject(className: TTHASHTAG.CLASS_NAME)
+                hashTag[TTHASHTAG.hashTag] = hashTagString
+                hashTag.saveInBackground()
+            }
+        })
     }
     
     class func autoComplete(
