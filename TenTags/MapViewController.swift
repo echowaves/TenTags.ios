@@ -39,9 +39,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         
         mapView.delegate = self
         TTUser.createOrloginUser()
-        
 
-        
+
         
 //        // 1
 //        let location = CLLocationCoordinate2D(
@@ -62,8 +61,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         
         switch CLLocationManager.authorizationStatus() {
         case .AuthorizedAlways:
-            locationManager.startUpdatingLocation()
             locationManager.distanceFilter = 10; // meters
+            locationManager.startUpdatingLocation()
 //            locationManager.startMonitoringSignificantLocationChanges()
 //            locationManager.startMonitoringVisits()
             // ...
@@ -102,9 +101,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
         // Add another annotation to the map.
 
-        let annotation = TTAnnotation(coordinate: newLocation.coordinate, title: "Apps Foundation", subtitle: "London", type: .Them)
+        let annotation = TTAnnotation(coordinate: newLocation.coordinate, title: "me", subtitle: "", type: .Me)
         mapView.centerCoordinate = annotation.coordinate
         mapView.addAnnotation(annotation)
+//        mapView.selectAnnotation(annotation, animated: true)
+        // do something with the new geoPoint
+        let span = MKCoordinateSpanMake(0.05, 0.05)
+        let region = MKCoordinateRegion(center: newLocation.coordinate, span: span)
+        self.mapView.setRegion(region, animated: true)
+
         mapView.removeAnnotations([lastAnnotation])
         lastAnnotation = annotation
         
@@ -130,13 +135,24 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     }
     
 
+//    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+//        let addNewTagViewController = self.storyboard?.instantiateViewControllerWithIdentifier("AddNewTagViewController") as! AddNewTagViewController
+//        navigationController?.pushViewController(addNewTagViewController, animated: true)
+//    }
+    
+    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
+        let myTagsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MyTagsViewController") as! MyTagsViewController
+        navigationController?.pushViewController(myTagsViewController, animated: true)
+    }
+    
 }
 
 
 extension MapViewController: MKMapViewDelegate {
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         let annotationView = TTAnnotationView(annotation: annotation, reuseIdentifier: "pin")
-        annotationView.canShowCallout = true
+        annotationView.canShowCallout = false
+        
         return annotationView
     }
 }

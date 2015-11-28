@@ -230,18 +230,6 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <animations/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CCH-No-vg8">
-                                <rect key="frame" x="534" y="72" width="46" height="30"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="46" id="E2m-Gg-Xwd"/>
-                                    <constraint firstAttribute="height" constant="30" id="Min-Eg-75t"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="buttonPushed:" destination="Eqz-v2-W3a" eventType="touchUpInside" id="0O4-b8-RP3"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -250,8 +238,6 @@
                             <constraint firstItem="VIk-3Y-tiB" firstAttribute="top" secondItem="z4f-LG-0Yn" secondAttribute="bottom" id="EUg-Nb-rMf"/>
                             <constraint firstItem="z4f-LG-0Yn" firstAttribute="leading" secondItem="8be-ON-f2M" secondAttribute="leadingMargin" constant="-20" id="ODF-wK-EzP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="z4f-LG-0Yn" secondAttribute="trailing" constant="-20" id="PIf-cq-fUU"/>
-                            <constraint firstItem="CCH-No-vg8" firstAttribute="trailing" secondItem="8be-ON-f2M" secondAttribute="trailingMargin" id="mxV-rK-Rf8"/>
-                            <constraint firstItem="CCH-No-vg8" firstAttribute="top" secondItem="d25-Z4-iBc" secondAttribute="bottom" constant="8" id="rRI-Pq-4zp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Su0-1r-AWh">

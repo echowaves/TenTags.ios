@@ -94,4 +94,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 // http://codentrick.com/create-a-tag-flow-layout-with-uicollectionview/
 // http://nshipster.com/core-location-in-ios-8/
-
+// http://www.raywenderlich.com/87008/overlay-views-mapkit-swift-tutorial
