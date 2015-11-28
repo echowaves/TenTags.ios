@@ -11,12 +11,25 @@ import MapKit
 import CoreLocation
 
 
+extension MapViewController: MKMapViewDelegate {
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        let pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+        pin.pinTintColor = UIColor.blueColor()
+        pin.canShowCallout = true
+        if let logo = UIImage(named: "logo-apps-foundation-small.jpg") {
+            pin.detailCalloutAccessoryView = UIImageView(image: logo)
+        }
+        return pin
+    }
+}
+
 class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
+    var lastLocation = CustomPin(coordinate: CLLocationCoordinate2D(), title: "", subtitle: "")
+//    var currentLocation = MKPointAnnotation()
     
-    var currentLocation = [MKPointAnnotation()]
-
+    
     lazy var locationManager: CLLocationManager! = {
         let manager = CLLocationManager()
         manager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
@@ -105,7 +118,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         let pin = CustomPin(coordinate: newLocation.coordinate, title: "Apps Foundation", subtitle: "London")
         mapView.centerCoordinate = pin.coordinate
         mapView.addAnnotation(pin)
+        mapView.removeAnnotations([lastLocation])
+        lastLocation = pin
+        
 
+        
         let currentUser = PFUser.currentUser()
         if currentUser != nil {
             // Do stuff with the user
