@@ -17,6 +17,7 @@
 		0AAD0F9D1BFF686C001EE16B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AAD0F9B1BFF686C001EE16B /* Main.storyboard */; };
 		0AAD0F9F1BFF686C001EE16B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AAD0F9E1BFF686C001EE16B /* Assets.xcassets */; };
 		0AAD0FA21BFF686C001EE16B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AAD0FA01BFF686C001EE16B /* LaunchScreen.storyboard */; };
+		0AB802DB1C089CEE003408C0 /* CustomPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB802DA1C089CEE003408C0 /* CustomPin.swift */; };
 		0ADFDE321C03813400538CCC /* TTHashTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADFDE311C03813400538CCC /* TTHashTag.swift */; };
 		0ADFDE341C03FE7F00538CCC /* TagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0ADFDE331C03FE7F00538CCC /* TagCell.xib */; };
 		0ADFDE361C0400F000538CCC /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADFDE351C0400F000538CCC /* TagCell.swift */; };
@@ -39,6 +40,7 @@
 		0AAD0F9E1BFF686C001EE16B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AAD0FA11BFF686C001EE16B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AAD0FA31BFF686C001EE16B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0AB802DA1C089CEE003408C0 /* CustomPin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPin.swift; sourceTree = "<group>"; };
 		0ADFDE311C03813400538CCC /* TTHashTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTHashTag.swift; sourceTree = "<group>"; };
 		0ADFDE331C03FE7F00538CCC /* TagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TagCell.xib; sourceTree = "<group>"; };
 		0ADFDE351C0400F000538CCC /* TagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				0AAD0FA01BFF686C001EE16B /* LaunchScreen.storyboard */,
 				0AAD0FA31BFF686C001EE16B /* Info.plist */,
 				0AA222FE1BFF7FF0002D7A37 /* MapViewController.swift */,
+				0AB802DA1C089CEE003408C0 /* CustomPin.swift */,
 				0AA222FC1BFF7FA7002D7A37 /* MyTagsViewController.swift */,
 				0ADFDE371C04056200538CCC /* FlowLayout.swift */,
 				0ADFDE331C03FE7F00538CCC /* TagCell.xib */,
@@ -272,6 +275,7 @@
 				0ADFDE321C03813400538CCC /* TTHashTag.swift in Sources */,
 				0A7B3F641C07617B00B32DDC /* TTUser.swift in Sources */,
 				0ADFDE361C0400F000538CCC /* TagCell.swift in Sources */,
+				0AB802DB1C089CEE003408C0 /* CustomPin.swift in Sources */,
 				0AA222FF1BFF7FF0002D7A37 /* MapViewController.swift in Sources */,
 				0AA222FD1BFF7FA7002D7A37 /* MyTagsViewController.swift in Sources */,
 				0A92B8A91C0298BE005AF812 /* ChatViewController.swift in Sources */,

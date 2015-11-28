@@ -36,10 +36,35 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         TTUser.createOrloginUser()
         
+
+        
+        
+//        // 1
+//        let location = CLLocationCoordinate2D(
+//            latitude: 51.50007773,
+//            longitude: -0.1246402
+//        )
+//        // 2
+//        let span = MKCoordinateSpanMake(0.05, 0.05)
+//        let region = MKCoordinateRegion(center: location, span: span)
+//        mapView.setRegion(region, animated: true)
+//        
+//        //3
+//        let annotation = MKPointAnnotation()
+//        annotation.coordinate = location
+//        annotation.title = "Big Ben"
+//        annotation.subtitle = "London"
+////        annotation.
+//        mapView.addAnnotation(annotation)
+        
+        
+        
         switch CLLocationManager.authorizationStatus() {
         case .AuthorizedAlways:
             locationManager.startUpdatingLocation()
-            locationManager.startMonitoringVisits()
+            locationManager.distanceFilter = 10; // meters
+//            locationManager.startMonitoringSignificantLocationChanges()
+//            locationManager.startMonitoringVisits()
             // ...
         case .NotDetermined:
             locationManager.requestAlwaysAuthorization()
@@ -58,39 +83,42 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                 }
             }
             alertController.addAction(openAction)
-            
             self.presentViewController(alertController, animated: true, completion: nil)
         }
         
         
         
-//        if CLLocationManager.authorizationStatus() == .NotDetermined {
-//            locationManager.requestAlwaysAuthorization()
-//        }
-//        
-//        if CLLocationManager.locationServicesEnabled() {
-//            locationManager.startUpdatingLocation()
-//        }
+        
     }
 
-    func locationManager(manager: CLLocationManager,
-        didChangeAuthorizationStatus status: CLAuthorizationStatus)
-    {
-        if status == .AuthorizedAlways || status == .AuthorizedWhenInUse {
-            manager.startUpdatingLocation()
-        }
-    }
+//    func locationManager(manager: CLLocationManager,
+//        didChangeAuthorizationStatus status: CLAuthorizationStatus)
+//    {
+//        if status == .AuthorizedAlways || status == .AuthorizedWhenInUse {
+//            manager.startUpdatingLocation()
+//        }
+//    }
     
     func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
         // Add another annotation to the map.
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = newLocation.coordinate
+
+        let pin = CustomPin(coordinate: newLocation.coordinate, title: "Apps Foundation", subtitle: "London")
+        mapView.centerCoordinate = pin.coordinate
+        mapView.addAnnotation(pin)
+
+        let currentUser = PFUser.currentUser()
+        if currentUser != nil {
+            // Do stuff with the user
+            
+            currentUser?.setValue(PFGeoPoint(location: newLocation), forKey: "location")
+            currentUser?.saveInBackground()
+        } else {
+            // Show the signup or login screen
+        }
         
-        mapView.removeAnnotations(currentLocation)
-        // Also add to our map so we can remove old values later
-        currentLocation[0] = annotation
+        
         if UIApplication.sharedApplication().applicationState == .Active {
-            mapView.showAnnotations(currentLocation, animated: true)
+//            mapView.showAnnotations(currentLocation, animated: true)
             NSLog("App is active. New location is %@", newLocation)
         } else {
             NSLog("App is backgrounded. New location is %@", newLocation)
