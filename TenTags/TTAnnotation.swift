@@ -10,12 +10,12 @@ import UIKit
 import MapKit
 
 enum PinType: Int {
-    case PinMe = 0
-    case PinThem
+    case Me = 0
+    case Them
 }
 
 
-class CustomPin : NSObject, MKAnnotation {
+class TTAnnotation : NSObject, MKAnnotation {
     var coordinate: CLLocationCoordinate2D
     var title: String?
     var subtitle: String?

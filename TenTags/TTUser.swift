@@ -59,7 +59,7 @@ class TTUser: NSObject {
     }
 
     class func createOrloginUser() {
-//        clearStoredCredential()
+//        clearStoredCredential()  
         PFUser.logOut()
         let user = PFUser()
         
