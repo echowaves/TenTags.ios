@@ -13,7 +13,9 @@ import CoreLocation
 
 
 class MapViewController: UIViewController, CLLocationManagerDelegate {
-    
+
+    var timer:NSTimer?
+
     @IBOutlet weak var mapView: MKMapView!
     var lastAnnotation = TTAnnotation(coordinate: CLLocationCoordinate2D(), title: "", subtitle: "", type: .Me)
 //    var currentLocation = MKPointAnnotation()
@@ -28,43 +30,50 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         return manager
     }()
     
-    @IBAction func buttonPushed(sender: AnyObject) {
-        let myTagsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MyTagsViewController") as! MyTagsViewController
-        navigationController?.pushViewController(myTagsViewController, animated: true)
-    }
+//    @IBAction func buttonPushed(sender: AnyObject) {
+//        let myTagsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MyTagsViewController") as! MyTagsViewController
+//        navigationController?.pushViewController(myTagsViewController, animated: true)
+//    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mapView.delegate = self
         TTUser.createOrloginUser()
 
+        mapView.delegate = self
+        
+        if timer == nil {
+            timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: Selector("updateAnnotations"), userInfo: nil, repeats: true)
+        }
+        
 
-        
-//        // 1
-//        let location = CLLocationCoordinate2D(
-//            latitude: 51.50007773,
-//            longitude: -0.1246402
-//        )
-//        // 2
-//        let span = MKCoordinateSpanMake(0.05, 0.05)
-////        let region = MKCoordinateRegion(center: location, span: span)
-////        mapView.setRegion(region, animated: true)
-//        
-//        //3
-//        let annotation = CustomPin(coordinate: location, title: "title", subtitle: "sub", type: .Me)
-////        annotation.
-//        mapView.addAnnotation(annotation)
-        
-        
-        
+        updateAnnotations()
+    }
+    
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        NSLog("view will appear")
+
         switch CLLocationManager.authorizationStatus() {
         case .AuthorizedAlways:
             locationManager.distanceFilter = 10; // meters
             locationManager.startUpdatingLocation()
-//            locationManager.startMonitoringSignificantLocationChanges()
-//            locationManager.startMonitoringVisits()
+            //            locationManager.startMonitoringSignificantLocationChanges()
+            //            locationManager.startMonitoringVisits()
+            let location = locationManager.location
+            let annotation = TTAnnotation(coordinate: location!.coordinate, title: "me", subtitle: "", type: .Me)
+            mapView.centerCoordinate = annotation.coordinate
+            mapView.addAnnotation(annotation)
+            let span = MKCoordinateSpanMake(0.05, 0.05)
+            let region = MKCoordinateRegion(center: location!.coordinate, span: span)
+            mapView.setRegion(region, animated: true)
+            mapView.scrollEnabled = false
+            mapView.rotateEnabled = false
+            lastAnnotation = annotation
+            
+            
             // ...
         case .NotDetermined:
             locationManager.requestAlwaysAuthorization()
@@ -73,7 +82,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                 title: "Background Location Access Disabled",
                 message: "In order to be notified about adorable taggers near you, please open this app's settings and set location access to 'Always'.",
                 preferredStyle: .Alert)
-            
             let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
             alertController.addAction(cancelAction)
             
@@ -86,17 +94,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             self.presentViewController(alertController, animated: true, completion: nil)
         }
         
+    }
+    
+    func updateAnnotations() -> Void {
+        NSLog("updating annotations")
+        
         
         
     }
 
-//    func locationManager(manager: CLLocationManager,
-//        didChangeAuthorizationStatus status: CLAuthorizationStatus)
-//    {
-//        if status == .AuthorizedAlways || status == .AuthorizedWhenInUse {
-//            manager.startUpdatingLocation()
-//        }
-//    }
     
     func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
         // Add another annotation to the map.
@@ -104,11 +110,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         let annotation = TTAnnotation(coordinate: newLocation.coordinate, title: "me", subtitle: "", type: .Me)
         mapView.centerCoordinate = annotation.coordinate
         mapView.addAnnotation(annotation)
-//        mapView.selectAnnotation(annotation, animated: true)
-        // do something with the new geoPoint
-        let span = MKCoordinateSpanMake(0.05, 0.05)
-        let region = MKCoordinateRegion(center: newLocation.coordinate, span: span)
-        self.mapView.setRegion(region, animated: true)
+        mapView.scrollEnabled = false
+        mapView.rotateEnabled = false
 
         mapView.removeAnnotations([lastAnnotation])
         lastAnnotation = annotation

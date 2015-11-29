@@ -88,6 +88,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="addTagButton" destination="VHZ-wR-zAg" id="3pz-5T-OiK"/>
                         <outlet property="collectionView" destination="jXg-x9-8WP" id="u3i-zZ-05a"/>
                         <outlet property="flowLayout" destination="nPI-VN-SB0" id="z5x-9S-UKl"/>
                     </connections>

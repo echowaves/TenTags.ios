@@ -11,8 +11,6 @@ import UIKit
 class MyTagsViewController: UIViewController,UICollectionViewDataSource {
     
     var TAGS:NSArray? = [""]
-//    ["Tech", "Design", "Humor", "Travel", "Music", "Writing", "Social Media", "Life", "Education", "Edtech", "Education Reform", "Photography", "Startup", "Poetry", "Women In Tech", "Female Founders", "Business", "Fiction", "Love", "Food", "Tech", "Design", "Humor", "Travel", "Music", "Writing", "Social Media", "Life", "Education", "Edtech", "Education Reform", "Photography", "Startup", "Poetry", "Women In Tech", "Female Founders", "Business", "Fiction", "Love", "Food", "Tech", "Design", "Humor", "Travel", "Music", "Writing", "Social Media", "Life", "Education", "Edtech", "Education Reform", "Photography", "Startup", "Poetry", "Women In Tech", "Female Founders", "Business", "Fiction", "Love", "Food", "Tech", "Design", "Humor", "Travel", "Music", "Writing", "Social Media", "Life", "Education", "Edtech", "Education Reform", "Photography", "Startup", "Poetry", "Women In Tech", "Female Founders", "Business", "Fiction", "Love", "Food", "Tech", "Design", "Humor", "Travel", "Music", "Writing", "Social Media", "Life", "Education", "Edtech", "Education Reform", "Photography", "Startup", "Poetry", "Women In Tech", "Female Founders", "Business", "Fiction", "Love", "Food", "Sports"]
-
     
     var sizingCell: TagCell?
     
@@ -24,6 +22,7 @@ class MyTagsViewController: UIViewController,UICollectionViewDataSource {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
+    @IBOutlet weak var addTagButton: UIButton!
     
     
     override func viewWillAppear(animated: Bool) {
@@ -33,9 +32,20 @@ class MyTagsViewController: UIViewController,UICollectionViewDataSource {
         } catch {
             NSLog("error refreshing current user")
         }
-        TAGS = PFUser.currentUser()?.objectForKey("hashTags") as? NSArray
+        reloadTags()
+    }
+    
+    func reloadTags() {
+        TAGS = PFUser.currentUser()?[TTUSER.hashTags] as? NSArray
         self.collectionView.reloadData()
         NSLog("loading tags")
+        
+        if TAGS?.count >= 10 {
+            addTagButton.hidden = true
+        } else {
+            addTagButton.hidden = false
+        }
+        
     }
     
     override func viewDidLoad() {
@@ -90,7 +100,8 @@ class MyTagsViewController: UIViewController,UICollectionViewDataSource {
             PFUser.currentUser()?.removeObjectsInArray([self.TAGS![indexPath.row]], forKey: "hashTags")
             PFUser.currentUser()?.saveInBackground()
 
-            self.TAGS = PFUser.currentUser()?.objectForKey("hashTags") as? NSArray
+            self.reloadTags()
+
             self.collectionView.reloadData()
             self.collectionView.reloadInputViews()
         }

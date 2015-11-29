@@ -13,6 +13,7 @@ let TTUSER:TTUser = TTUser()
 class TTUser: NSObject {
     let CLASS_NAME = "User"
     let hashTags = "hashTags" //: String
+    let location = "location" //PFGeoPint
     
     
     
