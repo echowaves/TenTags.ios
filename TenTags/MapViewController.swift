@@ -99,10 +99,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     func updateAnnotations() -> Void {
         NSLog("updating annotations")
         
-        
+        TTUser.searchUsersWithMatchingTagsCloseBy({ (results) -> () in
+            NSLog("!!!!!!!!!!!!!!!!!! found \(results.count) matching users nearby")
+            }) { (error) -> () in
+                NSLog("??????????????????? error: \(error)")
+        }
         
     }
-
+    
     
     func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
         // Add another annotation to the map.

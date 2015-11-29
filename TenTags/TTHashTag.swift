@@ -62,22 +62,4 @@ class TTHashTag: NSObject {
             }
     }
     
-    class func searchTagsCloseBy(
-        succeeded:(results:[String]) -> (),
-        failed:(error: NSError!) -> ()
-        ) -> () {
-            
-            // User's location
-            let userGeoPoint = PFUser.currentUser()?[TTUSER.location] as? PFGeoPoint
-            // Create a query for places
-            let query = PFQuery(className:TTUSER.CLASS_NAME)
-            // Interested in locations near user.
-            query.whereKey(TTUSER.location, nearGeoPoint: userGeoPoint!)
-            
-            // Limit what could be a lot of points.
-            query.limit = 100
-            // Final list of objects
-//            let users = query.findObjects()
-            
-    }
 }

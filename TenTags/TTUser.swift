@@ -101,5 +101,40 @@ class TTUser: NSObject {
         NSURLCredentialStorage.sharedCredentialStorage().removeCredential(getStoredCredential()!, forProtectionSpace: tenTagsProtectionSpace())
     }
 
+
+    class func searchUsersWithMatchingTagsCloseBy(
+        succeeded:(results:[PFObject]) -> (),
+        failed:(error: NSError!) -> ()
+        ) -> () {
+            
+            var subQueries = [PFQuery]()
+            
+            let TAGS = PFUser.currentUser()?[TTUSER.hashTags] as? NSArray
+            for tag in TAGS! {
+                let subQuery = PFQuery(className:TTUSER.CLASS_NAME)
+                subQuery.whereKey(TTUSER.hashTags, equalTo: tag)
+                subQueries.append(subQuery)
+            }
+            
+            // User's location
+            let userGeoPoint = PFUser.currentUser()?[TTUSER.location] as? PFGeoPoint
+            // Create a query for places
+            let mainQuery = PFQuery.orQueryWithSubqueries(subQueries)
+            // Interested in locations near user.
+            mainQuery.whereKey(TTUSER.location, nearGeoPoint: userGeoPoint!)
+            
+            // Limit what could be a lot of points.
+            mainQuery.limit = 100
+            // Final list of objects
+            mainQuery.findObjectsInBackgroundWithBlock {
+                (results: [PFObject]?, error: NSError?) -> Void in
+                if error == nil {
+                    // results contains players with lots of wins or only a few wins.
+                    succeeded(results: results!)
+                } else {
+                    failed(error: error)
+                }
+            }
+    }
     
 }
