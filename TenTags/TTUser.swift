@@ -111,9 +111,9 @@ class TTUser: NSObject {
             
             let TAGS = PFUser.currentUser()?[TTUSER.hashTags] as? NSArray
             for tag in TAGS! {
-                let subQuery = PFQuery(className:TTUSER.CLASS_NAME)
-                subQuery.whereKey(TTUSER.hashTags, equalTo: tag)
+                let subQuery = PFUser.query()!.whereKey(TTUSER.hashTags, equalTo: tag)
                 subQueries.append(subQuery)
+                NSLog("key query: \(tag)")
             }
             
             // User's location
@@ -130,6 +130,7 @@ class TTUser: NSObject {
                 (results: [PFObject]?, error: NSError?) -> Void in
                 if error == nil {
                     // results contains players with lots of wins or only a few wins.
+                    NSLog("!!!!!!!!!!!!!!!!!! found \(results!.count) matching users nearby")
                     succeeded(results: results!)
                 } else {
                     failed(error: error)
