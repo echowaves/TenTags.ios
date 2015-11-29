@@ -103,7 +103,7 @@ class TTUser: NSObject {
 
 
     class func searchUsersWithMatchingTagsCloseBy(
-        succeeded:(results:[PFObject]) -> (),
+        succeeded:(results:[PFUser]) -> (),
         failed:(error: NSError!) -> ()
         ) -> () {
             
@@ -125,13 +125,14 @@ class TTUser: NSObject {
             
             // Limit what could be a lot of points.
             mainQuery.limit = 100
+            
             // Final list of objects
             mainQuery.findObjectsInBackgroundWithBlock {
                 (results: [PFObject]?, error: NSError?) -> Void in
                 if error == nil {
                     // results contains players with lots of wins or only a few wins.
                     NSLog("!!!!!!!!!!!!!!!!!! found \(results!.count) matching users nearby")
-                    succeeded(results: results!)
+                    succeeded(results: (results as? [PFUser])!)
                 } else {
                     failed(error: error)
                 }

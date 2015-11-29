@@ -62,4 +62,14 @@ class TTHashTag: NSObject {
             }
     }
     
+    class func overlappingTagsString(firstUser: PFUser, secondUser: PFUser) -> String {
+        let set1 = Set(firstUser[TTUSER.hashTags] as! [String])
+        let set2 = Set(secondUser[TTUSER.hashTags] as! [String])
+        let resultSet = set1.intersect(set2)
+        let resultString = resultSet.map({"\($0)"}).joinWithSeparator(", ")
+        
+        NSLog("intersect string: \(resultSet)")
+        return resultString
+    }
+    
 }

@@ -18,8 +18,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     var lastAnnotation = TTAnnotation(coordinate: CLLocationCoordinate2D(), title: "", subtitle: "", type: .Me)
-//    var currentLocation = MKPointAnnotation()
-    
+
+    var annotations = [TTAnnotation]()
     
     lazy var locationManager: CLLocationManager! = {
         let manager = CLLocationManager()
@@ -69,8 +69,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             let span = MKCoordinateSpanMake(0.05, 0.05)
             let region = MKCoordinateRegion(center: location!.coordinate, span: span)
             mapView.setRegion(region, animated: true)
-            mapView.scrollEnabled = false
-            mapView.rotateEnabled = false
+//            mapView.scrollEnabled = false
+//            mapView.rotateEnabled = false
             lastAnnotation = annotation
             
             
@@ -100,7 +100,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         NSLog("updating annotations")
         
         TTUser.searchUsersWithMatchingTagsCloseBy({ (results) -> () in
-            NSLog("!!!!!!!!!!!!!!!!!! found \(results.count) matching users nearby")
+            self.mapView.removeAnnotations(self.annotations)
+            self.annotations  = [TTAnnotation]()
+            for user in results.reverse() {
+                if user != PFUser.currentUser() {
+                    let overlappingTags = TTHashTag.overlappingTagsString(PFUser.currentUser()!, secondUser: user)
+                    let coordinates = CLLocationCoordinate2D(latitude: ((user[TTUSER.location] as? PFGeoPoint)?.latitude)!, longitude: ((user[TTUSER.location] as? PFGeoPoint)?.longitude)!)
+                    let annotation = TTAnnotation(coordinate: coordinates, title: overlappingTags, subtitle: "", type: .Them)
+                    self.mapView.addAnnotation(annotation)
+                    self.annotations.append(annotation)
+                }
+            }
+            
             }) { (error) -> () in
                 NSLog("??????????????????? error: \(error)")
         }
@@ -112,10 +123,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         // Add another annotation to the map.
 
         let annotation = TTAnnotation(coordinate: newLocation.coordinate, title: "me", subtitle: "", type: .Me)
-        mapView.centerCoordinate = annotation.coordinate
+//        mapView.centerCoordinate = annotation.coordinate
         mapView.addAnnotation(annotation)
-        mapView.scrollEnabled = false
-        mapView.rotateEnabled = false
+//        mapView.scrollEnabled = false
+//        mapView.rotateEnabled = false
 
         mapView.removeAnnotations([lastAnnotation])
         lastAnnotation = annotation
