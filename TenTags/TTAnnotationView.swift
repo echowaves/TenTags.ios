@@ -10,6 +10,9 @@ import UIKit
 import MapKit
 
 class TTAnnotationView: MKAnnotationView {
+    
+    var ttAnnotation:TTAnnotation? = nil
+    
     // Required for MKAnnotationView
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
@@ -22,27 +25,22 @@ class TTAnnotationView: MKAnnotationView {
     
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
-        let ttAnnotation = self.annotation as! TTAnnotation
-        switch (ttAnnotation.pinType!) {
+        ttAnnotation = self.annotation as? TTAnnotation
+        switch (ttAnnotation!.pinType!) {
         case .Me:
-//            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-//            label.text = ttAnnotation.title
-//            label.backgroundColor = UIColor(rgb: 0xFF9900)
-//            label.layer.cornerRadius = 25
-//            label.layer.masksToBounds = true
-//            label.textAlignment = .Center
-//            label.textColor = UIColor.whiteColor()
             image = UIImage(named: "logo")
         case .Them:
             let label = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 25))
             label.layer.cornerRadius = 5
             label.layer.masksToBounds = true
             label.textAlignment = .Center
-            label.text = ttAnnotation.title
+            label.text = ttAnnotation!.title
             label.backgroundColor = UIColor(rgb: 0xcccff)
             image = UIImage.imageWithLabel(label)
         }
     }
+    
+
 }
 
 extension UIImage {

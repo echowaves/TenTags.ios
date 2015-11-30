@@ -17,7 +17,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     var timer:NSTimer?
 
     @IBOutlet weak var mapView: MKMapView!
-    var currentAnnotation = TTAnnotation(coordinate: CLLocationCoordinate2D(), title: "", subtitle: "", type: .Me)
+    var currentAnnotation = TTAnnotation(coordinate: CLLocationCoordinate2D(), title: "", subtitle: "", type: .Me, user: PFUser.currentUser())
 
     var allAnnotations = [TTAnnotation]()
     
@@ -43,6 +43,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                 let coordinates = CLLocationCoordinate2D(latitude: (geoPoint?.latitude)!, longitude: (geoPoint?.longitude)!)
                 self.mapView.centerCoordinate = coordinates
             } else {
+                NSLog("error brining map to center")
             }
         }
     }
@@ -94,7 +95,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                     // do something with the new geoPoint
                     let coordinates = CLLocationCoordinate2D(latitude: (geoPoint?.latitude)!, longitude: (geoPoint?.longitude)!)
                     
-                    let annotation = TTAnnotation(coordinate: coordinates, title: "me", subtitle: "", type: .Me)
+                    let annotation = TTAnnotation(coordinate: coordinates, title: "me", subtitle: "", type: .Me, user: user)
                     self.mapView.centerCoordinate = annotation.coordinate
                     self.mapView.addAnnotation(annotation)
                     self.currentAnnotation = annotation
@@ -127,6 +128,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         NSLog("view will appear")
+        if self.timer != nil {
+            updateAnnotations()
+        }
     }
     
     func updateAnnotations() -> Void {
@@ -139,7 +143,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                 if user != PFUser.currentUser() {
                     let overlappingTags = TTHashTag.overlappingTagsString(PFUser.currentUser()!, secondUser: user)
                     let coordinates = CLLocationCoordinate2D(latitude: ((user[TTUSER.location] as? PFGeoPoint)?.latitude)!, longitude: ((user[TTUSER.location] as? PFGeoPoint)?.longitude)!)
-                    let annotation = TTAnnotation(coordinate: coordinates, title: overlappingTags, subtitle: "", type: .Them)
+                    let annotation = TTAnnotation(coordinate: coordinates, title: overlappingTags, subtitle: "", type: .Them, user: user)
                     self.mapView.addAnnotation(annotation)
                     self.allAnnotations.append(annotation)
                 }
@@ -155,7 +159,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
         // Add another annotation to the map.
 
-        let annotation = TTAnnotation(coordinate: newLocation.coordinate, title: "me", subtitle: "", type: .Me)
+        let annotation = TTAnnotation(coordinate: newLocation.coordinate, title: "me", subtitle: "", type: .Me, user: PFUser.currentUser()!)
         //        mapView.centerCoordinate = annotation.coordinate
         //        mapView.scrollEnabled = false
         //        mapView.rotateEnabled = false
@@ -187,8 +191,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
 //    }
     
     func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
-        let myTagsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MyTagsViewController") as! MyTagsViewController
-        navigationController?.pushViewController(myTagsViewController, animated: true)
+        let ttAnnotationView = view as! TTAnnotationView
+        if ttAnnotationView.ttAnnotation?.pinType == .Me {
+            let myTagsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MyTagsViewController") as! MyTagsViewController
+            navigationController?.pushViewController(myTagsViewController, animated: true)
+        } else {
+            
+        }
     }
     
 }
@@ -198,7 +207,7 @@ extension MapViewController: MKMapViewDelegate {
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         let annotationView = TTAnnotationView(annotation: annotation, reuseIdentifier: "pin")
         annotationView.canShowCallout = false
-        
+        self.mapView.bringSubviewToFront(annotationView)
         return annotationView
     }
 }

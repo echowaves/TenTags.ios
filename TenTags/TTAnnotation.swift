@@ -20,10 +20,12 @@ class TTAnnotation : NSObject, MKAnnotation {
     var title: String?
     var subtitle: String?
     var pinType: PinType?
-    init(coordinate: CLLocationCoordinate2D, title: String, subtitle: String, type: PinType) {
+    var user: PFUser?
+    init(coordinate: CLLocationCoordinate2D, title: String, subtitle: String, type: PinType, user: PFUser?) {
         self.coordinate = coordinate
         self.title = title
         self.subtitle = subtitle
         self.pinType = type
+        self.user = user
     }
 }
