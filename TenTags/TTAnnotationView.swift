@@ -25,14 +25,14 @@ class TTAnnotationView: MKAnnotationView {
         let ttAnnotation = self.annotation as! TTAnnotation
         switch (ttAnnotation.pinType!) {
         case .Me:
-            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-            label.text = ttAnnotation.title
-            label.backgroundColor = UIColor(rgb: 0xFF9900)
-            label.layer.cornerRadius = 25
-            label.layer.masksToBounds = true
-            label.textAlignment = .Center
-            label.textColor = UIColor.whiteColor()
-            image = UIImage.imageWithLabel(label)
+//            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+//            label.text = ttAnnotation.title
+//            label.backgroundColor = UIColor(rgb: 0xFF9900)
+//            label.layer.cornerRadius = 25
+//            label.layer.masksToBounds = true
+//            label.textAlignment = .Center
+//            label.textColor = UIColor.whiteColor()
+            image = UIImage(named: "logo")
         case .Them:
             let label = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 25))
             label.layer.cornerRadius = 5

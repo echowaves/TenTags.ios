@@ -59,49 +59,52 @@ class TTUser: NSObject {
         return nil
     }
 
-    class func createOrloginUser() {
-//        clearStoredCredential()  
-        PFUser.logOut()
-        let user = PFUser()
-        
-        var uuid = ""
-        if getStoredCredential() != nil {
-            uuid = (getStoredCredential()?.user)!
-        } else {
-            uuid = NSUUID().UUIDString
-            storeCredential(uuid)
-        }
-
-        
-        
-        do {
-            try PFUser.logInWithUsername(uuid, password: uuid)
-        } catch {
-            // login failed, let's create new user
-            user.username = uuid
-            user.password = uuid
-            do {
-                try user.signUp()
-                TTHashTag.addHashTag("Local News")
-                TTHashTag.addHashTag("Shopping")
-                TTHashTag.addHashTag("Music")
-                TTHashTag.addHashTag("Poetry")
-                TTHashTag.addHashTag("Tech")
-                TTHashTag.addHashTag("Food")
-                try PFUser.logInWithUsername(uuid, password: uuid)
-            } catch {
-                NSLog("user sign up failed")
+    
+    class func createOrloginUser(
+        success:(user:PFUser) -> (),
+        failed:(error: NSError?) -> ()
+        ) -> () {
+            PFUser.logOut()
+            
+            var uuid = ""
+            if getStoredCredential() != nil {
+                uuid = (getStoredCredential()?.user)!
+            } else {
+                uuid = NSUUID().UUIDString
+                storeCredential(uuid)
             }
-        }
-        
+            
+            let newUser = PFUser()
+            newUser.username = uuid
+            newUser.password = uuid
+            newUser.signUpInBackgroundWithBlock { (succeeded: Bool, error: NSError?) -> Void in
+                if succeeded == true {
+                    TTHashTag.addHashTag("Local News")
+                    TTHashTag.addHashTag("Shopping")
+                    TTHashTag.addHashTag("Music")
+                    TTHashTag.addHashTag("Poetry")
+                    TTHashTag.addHashTag("Tech")
+                    TTHashTag.addHashTag("Food")
+                    PFUser.logInWithUsernameInBackground(uuid, password: uuid)
+                    success(user: newUser)
+                } else {
+                    PFUser.logInWithUsernameInBackground(uuid, password: uuid) { (user:PFUser?, error:NSError?) -> Void in
+                        if error == nil && user != nil {
+                            success(user: user!)
+                        } else {
+                            failed(error: error)
+                        }
+                    }
+                }
+            }
     }
     
     class func clearStoredCredential() -> Void  {
         //check if credentials are already stored, then show it in the tune in fields
         NSURLCredentialStorage.sharedCredentialStorage().removeCredential(getStoredCredential()!, forProtectionSpace: tenTagsProtectionSpace())
     }
-
-
+    
+    
     class func searchUsersWithMatchingTagsCloseBy(
         succeeded:(results:[PFUser]) -> (),
         failed:(error: NSError!) -> ()
