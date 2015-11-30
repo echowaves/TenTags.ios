@@ -1,4 +1,6 @@
 PODS:
+  - Atlas (1.0.15):
+    - LayerKit (>= 0.17.1)
   - Bolts/Tasks (1.5.0)
   - Crashlytics (3.4.1):
     - Fabric (~> 1.6.0)
@@ -9,6 +11,7 @@ PODS:
     - Bolts/Tasks (~> 1.5)
 
 DEPENDENCIES:
+  - Atlas (~> 1.0)
   - Crashlytics (~> 3.4)
   - Fabric (~> 1.6)
   - LayerKit (~> 0.17)
@@ -16,6 +19,7 @@ DEPENDENCIES:
   - Parse (~> 1.10)
 
 SPEC CHECKSUMS:
+  Atlas: bd66c5b17719857a6b9e22299f76527245e06e88
   Bolts: 722ab9a4f8b50fc4ed1b9998a5a7a2b3f16d80b4
   Crashlytics: 41574a245bc6ae10c55d57f385ebd2004e5bee05
   Fabric: bf0ceb04e7c924090efc5f8c55e4fbcca189e0a0

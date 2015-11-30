@@ -14,3 +14,4 @@ pod 'Crashlytics', '~> 3.4'
 #pod 'TwilioSDK', '~>1.2'
 
 pod 'LayerKit', '~> 0.17'
+pod 'Atlas', '~> 1.0'
