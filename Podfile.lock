@@ -3,6 +3,7 @@ PODS:
   - Crashlytics (3.4.1):
     - Fabric (~> 1.6.0)
   - Fabric (1.6.1)
+  - LayerKit (0.17.3)
   - Localytics (3.5.1)
   - Parse (1.10.0):
     - Bolts/Tasks (~> 1.5)
@@ -10,6 +11,7 @@ PODS:
 DEPENDENCIES:
   - Crashlytics (~> 3.4)
   - Fabric (~> 1.6)
+  - LayerKit (~> 0.17)
   - Localytics (~> 3.5)
   - Parse (~> 1.10)
 
@@ -17,6 +19,7 @@ SPEC CHECKSUMS:
   Bolts: 722ab9a4f8b50fc4ed1b9998a5a7a2b3f16d80b4
   Crashlytics: 41574a245bc6ae10c55d57f385ebd2004e5bee05
   Fabric: bf0ceb04e7c924090efc5f8c55e4fbcca189e0a0
+  LayerKit: 92d150935d9b25c7ede0d6b47de5ddd237b1ee85
   Localytics: da06c00606839b53978ca093adbca1d8afdeeb3e
   Parse: 90b2544822200f84b18bfacc4e8b0a3a6c3584a2
 

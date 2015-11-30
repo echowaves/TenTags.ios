@@ -12,3 +12,5 @@ pod 'Crashlytics', '~> 3.4'
 
 #pod 'libPusher', '~> 1.6'
 #pod 'TwilioSDK', '~>1.2'
+
+pod 'LayerKit', '~> 0.17'
