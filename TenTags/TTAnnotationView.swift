@@ -28,7 +28,7 @@ class TTAnnotationView: MKAnnotationView {
         ttAnnotation = self.annotation as? TTAnnotation
         switch (ttAnnotation!.pinType!) {
         case .Me:
-            image = UIImage(named: "logo")
+            image = UIImage(named: "logo2x")
         case .Them:
             let label = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 25))
             label.layer.cornerRadius = 5
