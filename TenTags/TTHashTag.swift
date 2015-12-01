@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import Parse
+
 
 let TTHASHTAG:TTHashTag = TTHashTag()
 class TTHashTag: NSObject {

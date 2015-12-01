@@ -8,6 +8,8 @@
 
 import UIKit
 import MapKit
+import Parse
+
 
 enum PinType: Int {
     case Me = 0

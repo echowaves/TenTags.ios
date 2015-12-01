@@ -14,6 +14,8 @@ import Crashlytics
 //import TwitterCore
 //import DigitsKit
 //import TwitterKit
+import Parse
+import Atlas
 
 
 

@@ -1,6 +1,12 @@
 xcodeproj 'TenTags.xcodeproj'
 
+platform :ios, '8.0'
+use_frameworks!
+
+
 pod 'Parse', '~> 1.10'
+#pod 'ParseUI', '~> 1.1' #for user authentication, not needd
+
 pod 'Localytics', '~> 3.5'
 
 pod 'Fabric', '~> 1.6'
