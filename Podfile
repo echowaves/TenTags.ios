@@ -21,3 +21,5 @@ pod 'Crashlytics', '~> 3.4'
 
 pod 'LayerKit', '~> 0.17'
 pod 'Atlas', '~> 1.0'
+
+pod 'SVProgressHUD', '~> 2.0-beta'

@@ -9,6 +9,7 @@ PODS:
   - Localytics (3.5.1)
   - Parse (1.10.0):
     - Bolts/Tasks (~> 1.5)
+  - SVProgressHUD (2.0-beta)
 
 DEPENDENCIES:
   - Atlas (~> 1.0)
@@ -17,6 +18,7 @@ DEPENDENCIES:
   - LayerKit (~> 0.17)
   - Localytics (~> 3.5)
   - Parse (~> 1.10)
+  - SVProgressHUD (~> 2.0-beta)
 
 SPEC CHECKSUMS:
   Atlas: bd66c5b17719857a6b9e22299f76527245e06e88
@@ -26,5 +28,6 @@ SPEC CHECKSUMS:
   LayerKit: 92d150935d9b25c7ede0d6b47de5ddd237b1ee85
   Localytics: da06c00606839b53978ca093adbca1d8afdeeb3e
   Parse: 90b2544822200f84b18bfacc4e8b0a3a6c3584a2
+  SVProgressHUD: c83337f10ed32d701c423d519059a249973c8662
 
 COCOAPODS: 0.39.0
