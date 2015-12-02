@@ -7,6 +7,6 @@
 //
 
 #import "Localytics.h"
-#import <LayerKit/LayerKit.h>
-#import <Atlas/Atlas.h>
-#import <Parse/Parse.h>
+@import LayerKit;
+@import Atlas;
+@import Parse;

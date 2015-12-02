@@ -16,6 +16,7 @@ import Crashlytics
 //import TwitterKit
 import Parse
 import Atlas
+//import SVProgressHUD
 
 
 
@@ -31,11 +32,18 @@ extension UIColor {
 }
 
 
+
+let LayerAppIDString: NSURL! = NSURL(string: "layer:///apps/staging/dbdca7e0-9772-11e5-97f4-3a8a16005a40")
+let ParseAppIDString: String = "zoYLGIcwju9NnQJxX6Kg4zV839tdwHCc2qNWKQGu"
+let ParseClientKeyString: String = "CduodgMDs0LjI5BnqdMRzxa5miXCkQmHhMTNDbsp"
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    
+    var layerClient: LYRClient!
+
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -49,14 +57,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Localytics.autoIntegrate("84b2b28bcbe2930bfe1058b-67f6f9d4-8ff4-11e5-cc4a-0013a62af900", launchOptions: launchOptions)
         
-        //        Parse
-        // [Optional] Power your app with Local Datastore. For more info, go to
-        // https://parse.com/docs/ios_guide#localdatastore/iOS
-        Parse.enableLocalDatastore()
-        
-        // Initialize Parse.
-        Parse.setApplicationId("zoYLGIcwju9NnQJxX6Kg4zV839tdwHCc2qNWKQGu",
-            clientKey: "CduodgMDs0LjI5BnqdMRzxa5miXCkQmHhMTNDbsp")
+        setupParse()
+        setupLayer()
+
         
         // [Optional] Track statistics around application opens.
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
@@ -89,6 +92,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    
+    
+    func setupParse() {
+        // Enable Parse local data store for user persistence
+        Parse.enableLocalDatastore()
+        Parse.setApplicationId(ParseAppIDString, clientKey: ParseClientKeyString)
+        
+        // Set default ACLs
+//        let defaultACL: PFACL = PFACL()
+//        defaultACL.setPublicReadAccess(true)
+//        PFACL.setDefaultACL(defaultACL, withAccessForCurrentUser: true)
+    }
+    
+    func setupLayer() {
+        layerClient = LYRClient(appID: LayerAppIDString)
+        layerClient.autodownloadMIMETypes = NSSet(objects: ATLMIMETypeImagePNG, ATLMIMETypeImageJPEG, ATLMIMETypeImageJPEGPreview, ATLMIMETypeImageGIF, ATLMIMETypeImageGIFPreview, ATLMIMETypeLocation) as Set<NSObject>
+    }
+
     
     
 }

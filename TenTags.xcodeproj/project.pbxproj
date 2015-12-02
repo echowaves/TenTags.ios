@@ -23,7 +23,7 @@
 		0ADFDE341C03FE7F00538CCC /* TagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0ADFDE331C03FE7F00538CCC /* TagCell.xib */; };
 		0ADFDE361C0400F000538CCC /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADFDE351C0400F000538CCC /* TagCell.swift */; };
 		0ADFDE381C04056200538CCC /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADFDE371C04056200538CCC /* FlowLayout.swift */; };
-		4C83DF93910316BC550D93E4 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5561830AB80630D6B5A5AC0 /* Pods.framework */; };
+		4A731191D9B50EA882095F7D /* Pods_TenTags.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69704B34B5A148ADC58E206 /* Pods_TenTags.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,9 +46,9 @@
 		0ADFDE331C03FE7F00538CCC /* TagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TagCell.xib; sourceTree = "<group>"; };
 		0ADFDE351C0400F000538CCC /* TagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
 		0ADFDE371C04056200538CCC /* FlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowLayout.swift; sourceTree = "<group>"; };
-		130E84F3250B8173AAA159F7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		4F0AEA6EAF0060CCD5F7470F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		C5561830AB80630D6B5A5AC0 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B69704B34B5A148ADC58E206 /* Pods_TenTags.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TenTags.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9E9840B568D5A2269388DFF /* Pods-TenTags.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenTags.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TenTags/Pods-TenTags.debug.xcconfig"; sourceTree = "<group>"; };
+		EF4F44DF7B147D0E0713DBF3 /* Pods-TenTags.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenTags.release.xcconfig"; path = "Pods/Target Support Files/Pods-TenTags/Pods-TenTags.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C83DF93910316BC550D93E4 /* Pods.framework in Frameworks */,
+				4A731191D9B50EA882095F7D /* Pods_TenTags.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,8 +116,8 @@
 		88EB281F3C04E1E7FB204501 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4F0AEA6EAF0060CCD5F7470F /* Pods.debug.xcconfig */,
-				130E84F3250B8173AAA159F7 /* Pods.release.xcconfig */,
+				D9E9840B568D5A2269388DFF /* Pods-TenTags.debug.xcconfig */,
+				EF4F44DF7B147D0E0713DBF3 /* Pods-TenTags.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -126,7 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				0AA222F91BFF6BE9002D7A37 /* fontawesome-webfont.ttf */,
-				C5561830AB80630D6B5A5AC0 /* Pods.framework */,
+				B69704B34B5A148ADC58E206 /* Pods_TenTags.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -249,7 +249,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TenTags/Pods-TenTags-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F32251C8C058748AA38DBCFF /* Copy Pods Resources */ = {
@@ -264,7 +264,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TenTags/Pods-TenTags-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -330,6 +330,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -346,7 +347,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -375,6 +376,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -385,7 +387,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "TenTags/TenTags-Bridging-Header.h";
@@ -395,7 +397,7 @@
 		};
 		0AAD0FA71BFF686C001EE16B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4F0AEA6EAF0060CCD5F7470F /* Pods.debug.xcconfig */;
+			baseConfigurationReference = D9E9840B568D5A2269388DFF /* Pods-TenTags.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TenTags/Info.plist;
@@ -407,7 +409,7 @@
 		};
 		0AAD0FA81BFF686C001EE16B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 130E84F3250B8173AAA159F7 /* Pods.release.xcconfig */;
+			baseConfigurationReference = EF4F44DF7B147D0E0713DBF3 /* Pods-TenTags.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TenTags/Info.plist;
