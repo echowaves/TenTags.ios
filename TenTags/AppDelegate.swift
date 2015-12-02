@@ -33,7 +33,7 @@ extension UIColor {
 
 
 
-let LayerAppIDString: NSURL! = NSURL(string: "layer:///apps/staging/dbdca7e0-9772-11e5-97f4-3a8a16005a40")
+let LayerAppIDString: NSURL! = NSURL(string: "layer:///apps/staging/010170ac-978a-11e5-b517-3a8a16005a40")
 let ParseAppIDString: String = "zoYLGIcwju9NnQJxX6Kg4zV839tdwHCc2qNWKQGu"
 let ParseClientKeyString: String = "CduodgMDs0LjI5BnqdMRzxa5miXCkQmHhMTNDbsp"
 
@@ -43,6 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     var layerClient: LYRClient!
+    
 
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
