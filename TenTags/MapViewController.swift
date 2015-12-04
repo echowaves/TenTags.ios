@@ -210,6 +210,37 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             let myTagsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MyTagsViewController") as! MyTagsViewController
             navigationController?.pushViewController(myTagsViewController, animated: true)
         } else {
+            let usersSet = NSMutableSet()
+            usersSet.addObject(PFUser.currentUser()!.objectId!)
+            usersSet.addObject((ttAnnotationView.ttAnnotation?.user?.objectId!)!)
+
+
+                let query: LYRQuery = LYRQuery(queryableClass: LYRConversation.self)
+                query.predicate = LYRPredicate(property: "participants", predicateOperator: LYRPredicateOperator.IsEqualTo, value: usersSet)
+//                query.limit = 1
+            
+                var conversation:LYRConversation?
+            
+                self.layerClient.executeQuery(query, completion: { (results, error:NSError!) -> Void in
+                    if error == nil {
+                        if results.count > 0 {
+                            conversation = results[0] as? LYRConversation
+                        } else {
+                            do {
+                                conversation = try self.layerClient.newConversationWithParticipants(usersSet as Set<NSObject>, options: nil)
+                            } catch {
+                                    NSLog("failed to create new conversation")
+                            }
+                        }
+                        
+                        
+                        let conversationViewController: ConversationViewController = ConversationViewController(layerClient: self.layerClient)
+                        //                    conversationViewController.displaysAddressBar = shouldShowAddressBar
+                        conversationViewController.conversation = conversation
+                        self.navigationController?.pushViewController(conversationViewController, animated: true)
+                    }
+                })
+                    
             
         }
     }
@@ -306,6 +337,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                             NSLog("Layer Authenticated as User: \(authenticatedUserID)")
                         } else {
                             completion(success: false, error: error)
+                            NSLog("!!!!!!!!!!!!!!!!!!!Layer Authenticated failed: \(error)")
                         }
                     }
                 } else {

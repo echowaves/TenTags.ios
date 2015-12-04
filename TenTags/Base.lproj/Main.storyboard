@@ -304,7 +304,7 @@
         <!--Chats-->
         <scene sceneID="xif-Us-l0U">
             <objects>
-                <viewController id="vfa-B6-LgA" customClass="ChatViewController" customModule="TenTags" sceneMemberID="viewController">
+                <viewController id="vfa-B6-LgA" customClass="ConversationListViewController" customModule="TenTags" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sKR-Pc-yap"/>
                         <viewControllerLayoutGuide type="bottom" id="NDM-Nh-bWg"/>
