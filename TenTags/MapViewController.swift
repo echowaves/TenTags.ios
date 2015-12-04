@@ -105,37 +105,25 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                     // do something with the new geoPoint
                     let coordinates = CLLocationCoordinate2D(latitude: (geoPoint?.latitude)!, longitude: (geoPoint?.longitude)!)
                     
-                    let annotation = TTAnnotation(coordinate: coordinates, title: "me", subtitle: "", type: .Me, user: user)
-                    self.mapView.centerCoordinate = annotation.coordinate
-                    self.mapView.addAnnotation(annotation)
-                    self.currentAnnotation = annotation
+                    
+                    self.updateMyAnnotation(coordinates)
+                    
                     let span = MKCoordinateSpanMake(0.05, 0.05)
                     let region = MKCoordinateRegion(center: coordinates, span: span)
                     self.mapView.setRegion(region, animated: true)
-                    let currentUser = PFUser.currentUser()
-                    NSLog("current user: \(currentUser)")
-                    if currentUser != nil {
-                        // Do stuff with the user
-                        currentUser?.setValue(PFGeoPoint(latitude: coordinates.latitude, longitude: coordinates.longitude), forKey: TTUSER.location)
-                        currentUser?.saveInBackground()
-                        NSLog("saving current user")
-                        // start updating annotations
-                        if self.timer == nil {
-                            self.timer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: Selector("updateAnnotations"), userInfo: nil, repeats: true)
-                            self.updateAnnotations()
-//                            SVProgressHUD.dismiss()
-                        }
-                        self.loginLayer()
-                    } else {
-                        NSLog("should never have no user!!!")
+                    
+                    // start updating annotations
+                    if self.timer == nil {
+                        self.timer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: Selector("updateAnnotations"), userInfo: nil, repeats: true)
+                        self.updateAnnotations()
+                        //                            SVProgressHUD.dismiss()
                     }
+                    self.loginLayer()
                     }, failed: { (error) -> () in
                         NSLog("failed login!!!!!!!!!!!!!!!!!!!!!!!!!")
                 })
             }
         }
-
-        
     }
     
     
@@ -169,11 +157,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
-    
-    func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
-        // Add another annotation to the map.
-
-        let annotation = TTAnnotation(coordinate: newLocation.coordinate, title: "me", subtitle: "", type: .Me, user: PFUser.currentUser()!)
+    func updateMyAnnotation(coordinates:CLLocationCoordinate2D) -> Void  {
+        let annotation = TTAnnotation(coordinate: coordinates, title: "me", subtitle: "", type: .Me, user: PFUser.currentUser()!)
         //        mapView.centerCoordinate = annotation.coordinate
         //        mapView.scrollEnabled = false
         //        mapView.rotateEnabled = false
@@ -184,11 +169,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         let currentUser = PFUser.currentUser()
         if currentUser != nil {
             // Do stuff with the user
-            currentUser?.setValue(PFGeoPoint(location: newLocation), forKey: TTUSER.location)
+            currentUser?.setValue(PFGeoPoint(latitude: coordinates.latitude, longitude: coordinates.longitude), forKey: TTUSER.location)
             currentUser?.saveInBackground()
         } else {
             // Show the signup or login screen
         }
+    }
+    
+    
+    func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
+
+        updateMyAnnotation(newLocation.coordinate)
         
         if UIApplication.sharedApplication().applicationState == .Active {
 //            mapView.showAnnotations(currentLocation, animated: true)

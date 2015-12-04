@@ -103,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pus-zn-b3k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3042" y="433"/>
+            <point key="canvasLocation" x="3054" y="842"/>
         </scene>
         <!--add new #tag-->
         <scene sceneID="49B-na-fXf">
@@ -198,7 +198,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g4n-wF-GvE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3759" y="438"/>
+            <point key="canvasLocation" x="3771" y="847"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7sW-TP-8E4">
@@ -280,9 +280,6 @@
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <segue destination="vfa-B6-LgA" kind="show" id="HJw-be-FEj"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <animations/>
@@ -302,52 +299,8 @@
             </objects>
             <point key="canvasLocation" x="2236" y="842"/>
         </scene>
-        <!--Chats-->
-        <scene sceneID="xif-Us-l0U">
-            <objects>
-                <viewController id="vfa-B6-LgA" customClass="ConversationListViewController" customModule="TenTags" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="sKR-Pc-yap"/>
-                        <viewControllerLayoutGuide type="bottom" id="NDM-Nh-bWg"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="o5x-v9-bRL">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming soon..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6LX-qD-hcT">
-                                <rect key="frame" x="243" y="289" width="115" height="21"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="115" id="2Yf-We-K4B"/>
-                                    <constraint firstAttribute="height" constant="21" id="DTZ-yr-t6G"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="6LX-qD-hcT" firstAttribute="centerX" secondItem="o5x-v9-bRL" secondAttribute="centerX" id="cUE-N6-lgf"/>
-                            <constraint firstItem="6LX-qD-hcT" firstAttribute="centerY" secondItem="o5x-v9-bRL" secondAttribute="centerY" id="ury-3Z-hvd"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Chats" id="bzK-Ir-hS4">
-                        <barButtonItem key="leftBarButtonItem" image="back" id="uw0-Ph-1L2">
-                            <connections>
-                                <action selector="backButtonPressed:" destination="vfa-B6-LgA" id="2pq-QZ-lDq"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Wg5-zD-cZ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3051" y="1312"/>
-        </scene>
     </scenes>
     <resources>
-        <image name="back" width="32" height="32"/>
         <image name="me" width="32" height="32"/>
     </resources>
 </document>
