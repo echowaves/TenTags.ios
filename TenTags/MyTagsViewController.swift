@@ -19,9 +19,9 @@ class MyTagsViewController: UIViewController,UICollectionViewDataSource {
     
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
-    @IBAction func backButtonPressed(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
-    }
+//    @IBAction func backButtonPressed(sender: AnyObject) {
+//        self.navigationController?.popViewControllerAnimated(true)
+//    }
     
     @IBOutlet weak var addTagButton: UIButton!
     
@@ -61,6 +61,8 @@ class MyTagsViewController: UIViewController,UICollectionViewDataSource {
         self.sizingCell = (cellNib.instantiateWithOwner(nil, options: nil) as NSArray).firstObject as! TagCell?
         
         self.flowLayout.sectionInset = UIEdgeInsetsMake(8, 8, 8, 8)
+        
+//        self.navigationController?.navigationBar.topItem?.title = ""
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

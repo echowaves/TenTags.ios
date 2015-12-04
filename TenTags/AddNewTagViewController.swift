@@ -14,9 +14,9 @@ class AddNewTagViewController: UIViewController, UITextFieldDelegate, UITableVie
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addButton: UIButton!
     
-    @IBAction func backButtonPressed(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
-    }
+//    @IBAction func backButtonPressed(sender: AnyObject) {
+//        self.navigationController?.popViewControllerAnimated(true)
+//    }
     
     @IBOutlet weak var autocompleteTableView: UITableView!
     var completions = [String]()
@@ -40,6 +40,8 @@ class AddNewTagViewController: UIViewController, UITextFieldDelegate, UITableVie
         autocompleteTableView.hidden = true
         autocompleteTableView.delegate      =   self
         autocompleteTableView.dataSource    =   self
+
+//        self.navigationController?.navigationBar.topItem?.title = ""
 
     }
     

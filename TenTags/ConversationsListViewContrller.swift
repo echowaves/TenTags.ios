@@ -26,6 +26,8 @@ class ConversationListViewController: ATLConversationListViewController, ATLConv
         
         let composeItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Compose, target: self, action: Selector("composeButtonTapped:"))
         self.navigationItem.setRightBarButtonItem(composeItem, animated: false)
+        self.navigationController?.navigationItem.leftBarButtonItem?.title = "qwe"
+
     }
     
     // MARK - ATLConversationListViewControllerDelegate Methods
@@ -148,16 +150,16 @@ class ConversationListViewController: ATLConversationListViewController, ATLConv
         self.navigationController!.pushViewController(controller, animated: true)
     }
     
-    func logoutButtonTapped(sender: AnyObject) {
-        print("logOutButtonTapAction")
-        
-        self.layerClient.deauthenticateWithCompletion { (success: Bool, error: NSError?) in
-            if error == nil {
-                PFUser.logOut()
-                self.navigationController!.popToRootViewControllerAnimated(true)
-            } else {
-                print("Failed to deauthenticate: \(error)")
-            }
-        }
-    }
+//    func logoutButtonTapped(sender: AnyObject) {
+//        print("logOutButtonTapAction")
+//        
+//        self.layerClient.deauthenticateWithCompletion { (success: Bool, error: NSError?) in
+//            if error == nil {
+//                PFUser.logOut()
+//                self.navigationController!.popToRootViewControllerAnimated(true)
+//            } else {
+//                print("Failed to deauthenticate: \(error)")
+//            }
+//        }
+//    }
 }

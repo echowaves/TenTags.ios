@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         //Set bar appearance
-        UINavigationBar.appearance().barTintColor = UIColor(rgb: 0xFFA500)
+        UINavigationBar.appearance().barTintColor = UIColor(rgb: 0x00C333)
         UINavigationBar.appearance().tintColor = UIColor.whiteColor();
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
 
@@ -109,3 +109,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 // http://nshipster.com/core-location-in-ios-8/
 // http://www.raywenderlich.com/87008/overlay-views-mapkit-swift-tutorial
 // https://github.com/kwkhaw/Layer-Parse-iOS-Swift-Example
+// https://github.com/layerhq/documentation/blob/master/ios/guides/advanced-querying.md

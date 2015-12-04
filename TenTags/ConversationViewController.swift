@@ -34,6 +34,7 @@ class ConversationViewController: ATLConversationViewController, ATLConversation
     
     func configureUI() {
         ATLOutgoingMessageCollectionViewCell.appearance().messageTextColor = UIColor.whiteColor()
+//        self.navigationController?.navigationBar.topItem?.title = ""
     }
     
     // MARK - ATLConversationViewControllerDelegate methods
