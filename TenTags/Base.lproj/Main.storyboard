@@ -26,7 +26,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jXg-x9-8WP">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="448"/>
                                 <animations/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nPI-VN-SB0">
                                     <size key="itemSize" width="50" height="50"/>
@@ -67,6 +67,16 @@
                                     <segue destination="x4l-Je-tde" kind="show" id="v5L-kb-q65"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="add up to 10 #tags describing your interests" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUr-qf-idG">
+                                <rect key="frame" x="0.0" y="475" width="512" height="21"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="bMl-9y-MT6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -74,9 +84,12 @@
                             <constraint firstItem="XjF-Re-y5o" firstAttribute="top" secondItem="VHZ-wR-zAg" secondAttribute="bottom" constant="20" id="3nd-ba-Phw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jXg-x9-8WP" secondAttribute="trailing" constant="-20" id="b8G-eN-JlQ"/>
                             <constraint firstItem="VHZ-wR-zAg" firstAttribute="trailing" secondItem="YTR-Qy-ybh" secondAttribute="trailingMargin" id="dBs-Nn-cVS"/>
-                            <constraint firstItem="XjF-Re-y5o" firstAttribute="top" secondItem="jXg-x9-8WP" secondAttribute="bottom" id="mpf-VW-sZQ"/>
+                            <constraint firstItem="DUr-qf-idG" firstAttribute="leading" secondItem="YTR-Qy-ybh" secondAttribute="leadingMargin" constant="-20" id="kHO-ET-pK9"/>
+                            <constraint firstItem="XjF-Re-y5o" firstAttribute="top" secondItem="jXg-x9-8WP" secondAttribute="bottom" constant="88" id="mpf-VW-sZQ"/>
+                            <constraint firstItem="VHZ-wR-zAg" firstAttribute="leading" secondItem="DUr-qf-idG" secondAttribute="trailing" constant="8" id="pPk-eD-M5C"/>
                             <constraint firstItem="jXg-x9-8WP" firstAttribute="top" secondItem="YTR-Qy-ybh" secondAttribute="topMargin" id="qpc-fi-tiV"/>
                             <constraint firstItem="jXg-x9-8WP" firstAttribute="leading" secondItem="YTR-Qy-ybh" secondAttribute="leadingMargin" constant="-20" id="zHS-2o-Hdn"/>
+                            <constraint firstItem="XjF-Re-y5o" firstAttribute="top" secondItem="DUr-qf-idG" secondAttribute="bottom" constant="40" id="zmH-tX-iI7"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="me" image="me" id="pSH-6Y-mMl"/>
