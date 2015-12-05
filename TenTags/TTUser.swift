@@ -15,12 +15,10 @@ class TTUser: NSObject {
     let CLASS_NAME = "User"
     let hashTags = "hashTags" //: String
     let location = "location" //PFGeoPint
-    
-    
+    let blockedUsers = "blockedUsers" //[Strgin] array of PFUser ids that are blcoked by current user
     
     class func tenTagsProtectionSpace() -> (NSURLProtectionSpace) {
         let url:NSURL = NSURL(string: "http://tentags.com")!
-        
         
         let protSpace =
         NSURLProtectionSpace(
@@ -141,6 +139,38 @@ class TTUser: NSObject {
                     failed(error: error)
                 }
             }
+    }
+
+    class func blockUser(sourceUser:PFUser, targetUserId:String,
+        succeeded:() -> (),
+        failed:(error: NSError!) -> ()
+        ) -> Void {
+            sourceUser.addUniqueObject(targetUserId, forKey:TTUSER.blockedUsers)
+            sourceUser.saveInBackgroundWithBlock { (success:Bool, error:NSError?) -> Void in
+                if error == nil {
+                    succeeded()
+                } else {
+                    failed(error: error)
+                }
+            }
+    }
+    
+    class func unBlockUser(sourceUser:PFUser, targetUserId:String,
+        succeeded:() -> (),
+        failed:(error: NSError!) -> () ) -> Void {
+        sourceUser.removeObjectsInArray([targetUserId], forKey: TTUSER.blockedUsers)
+            sourceUser.saveInBackgroundWithBlock { (success:Bool, error:NSError?) -> Void in
+                if error == nil {
+                    succeeded()
+                } else {
+                    failed(error: error)
+                }
+            }
+    }
+
+    
+    class func isBlockedBy(sourceUser:PFUser, targetUserId:String) -> Bool {
+        return (sourceUser[TTUSER.blockedUsers] as! [String]).contains(targetUserId)
     }
     
 }

@@ -100,7 +100,7 @@ class MyTagsViewController: UIViewController,UICollectionViewDataSource {
         //Create and add a second option action
         let choosePictureAction: UIAlertAction = UIAlertAction(title: "delete #\(TAGS![indexPath.row])", style: .Default) { action -> Void in
 
-            PFUser.currentUser()?.removeObjectsInArray([self.TAGS![indexPath.row]], forKey: "hashTags")
+            PFUser.currentUser()?.removeObjectsInArray([self.TAGS![indexPath.row]], forKey: TTUSER.hashTags)
             PFUser.currentUser()?.saveInBackground()
 
             self.reloadTags()

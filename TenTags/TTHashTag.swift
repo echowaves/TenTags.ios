@@ -18,7 +18,7 @@ class TTHashTag: NSObject {
     
     class func addHashTag(var hashTagString: String) -> () {
         hashTagString = hashTagString.lowercaseString
-        PFUser.currentUser()?.addUniqueObject(hashTagString, forKey:"hashTags" )
+        PFUser.currentUser()?.addUniqueObject(hashTagString, forKey:TTUSER.hashTags )
         PFUser.currentUser()?.saveInBackgroundWithBlock({ (success:Bool, error: NSError?) -> Void in
             if success == true {
                 let hashTag = PFObject(className: TTHASHTAG.CLASS_NAME)

@@ -9,9 +9,9 @@ import UIKit
 import Atlas
 import Parse
 
-class ConversationViewController: ATLConversationViewController, ATLConversationViewControllerDataSource, ATLConversationViewControllerDelegate, ATLParticipantTableViewControllerDelegate {
+class ConversationViewController: ATLConversationViewController, ATLConversationViewControllerDataSource, ATLConversationViewControllerDelegate {
     var dateFormatter: NSDateFormatter = NSDateFormatter()
-    var usersArray: NSArray!
+//    var usersArray: NSArray!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,16 +24,15 @@ class ConversationViewController: ATLConversationViewController, ATLConversation
         // Uncomment the following line if you want to show avatars in 1:1 conversations
         // self.shouldDisplayAvatarItemForOneOtherParticipant = true
         
-                let composeItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Compose, target: self, action: Selector("composeButtonTapped:"))
-                self.navigationItem.setRightBarButtonItem(composeItem, animated: false)
-
-        
         // Setup the dateformatter used by the dataSource.
         self.dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
         self.dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
         
         self.configureUI()
+        self.showBlockMenu()
     }
+    
+    
     
     // MARK - UI Configuration methods
     
@@ -146,25 +145,69 @@ class ConversationViewController: ATLConversationViewController, ATLConversation
     
     // MARK - ATLParticipantTableViewController Delegate Methods
     
-    func participantTableViewController(participantTableViewController: ATLParticipantTableViewController, didSelectParticipant participant: ATLParticipant) {
-        print("participant: \(participant)")
-        self.addressBarController.selectParticipant(participant)
-        print("selectedParticipants: \(self.addressBarController.selectedParticipants)")
-        self.navigationController!.dismissViewControllerAnimated(true, completion: nil)
+//    func participantTableViewController(participantTableViewController: ATLParticipantTableViewController, didSelectParticipant participant: ATLParticipant) {
+//        print("participant: \(participant)")
+//        self.addressBarController.selectParticipant(participant)
+//        print("selectedParticipants: \(self.addressBarController.selectedParticipants)")
+//        self.navigationController!.dismissViewControllerAnimated(true, completion: nil)
+//    }
+//    
+//    func participantTableViewController(participantTableViewController: ATLParticipantTableViewController, didSearchWithString searchText: String, completion: ((Set<NSObject>!) -> Void)?) {
+////        UserManager.sharedManager.queryForUserWithName(searchText) { (participants, error) in
+////            if (error == nil) {
+////                if let callback = completion {
+////                    callback(NSSet(array: participants as! [AnyObject]) as Set<NSObject>)
+////                }
+////            } else {
+////                print("Error search for participants: \(error)")
+////            }
+////        }
+//    }
+//
+    
+    
+    func blockUser(sender: AnyObject) {
+        TTUser.blockUser(PFUser.currentUser()!, targetUserId: theOtherUserId()!,
+            succeeded: { () -> () in
+                self.showBlockMenu()
+            }) { (error) -> () in
+                NSLog("failed to block user: \(error)")
+        }
     }
     
-    func participantTableViewController(participantTableViewController: ATLParticipantTableViewController, didSearchWithString searchText: String, completion: ((Set<NSObject>!) -> Void)?) {
-//        UserManager.sharedManager.queryForUserWithName(searchText) { (participants, error) in
-//            if (error == nil) {
-//                if let callback = completion {
-//                    callback(NSSet(array: participants as! [AnyObject]) as Set<NSObject>)
-//                }
-//            } else {
-//                print("Error search for participants: \(error)")
-//            }
-//        }
+    func unblockUser(sender: AnyObject) {
+        TTUser.unBlockUser(PFUser.currentUser()!, targetUserId: theOtherUserId()!,
+            succeeded: { () -> () in
+                self.showBlockMenu()
+            }) { (error) -> () in
+                NSLog("failed to block user: \(error)")
+        }
     }
 
+    func theOtherUserId() -> String? {
+        let participants = self.conversation!.participants!
+        
+        for participant in participants {
+            if participant != PFUser.currentUser()?.objectId! {
+                return participant as? String
+            }
+        }
+        return nil
+    }
+    
+
+    func showBlockMenu() {
+        if TTUser.isBlockedBy(PFUser.currentUser()!, targetUserId: theOtherUserId()!) {
+            let unblockConversation = UIBarButtonItem(title: "unblock", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("unblockUser:"))
+            self.navigationItem.setRightBarButtonItem(unblockConversation, animated: false)
+            
+        } else {
+            let blockConversation = UIBarButtonItem(title: "block", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("blockUser:"))
+            self.navigationItem.setRightBarButtonItem(blockConversation, animated: false)
+            
+        }
+    }
 }
+
 
 
