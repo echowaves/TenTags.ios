@@ -15,6 +15,7 @@ class ConversationViewController: ATLConversationViewController, ATLConversation
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.dataSource = self
         self.delegate = self
         print("addressBarController: \(self.addressBarController)")
@@ -22,6 +23,10 @@ class ConversationViewController: ATLConversationViewController, ATLConversation
         
         // Uncomment the following line if you want to show avatars in 1:1 conversations
         // self.shouldDisplayAvatarItemForOneOtherParticipant = true
+        
+                let composeItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Compose, target: self, action: Selector("composeButtonTapped:"))
+                self.navigationItem.setRightBarButtonItem(composeItem, animated: false)
+
         
         // Setup the dateformatter used by the dataSource.
         self.dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
@@ -35,6 +40,8 @@ class ConversationViewController: ATLConversationViewController, ATLConversation
     func configureUI() {
         ATLOutgoingMessageCollectionViewCell.appearance().messageTextColor = UIColor.whiteColor()
 //        self.navigationController?.navigationBar.topItem?.title = ""
+        self.editButtonItem().enabled = true
+        
     }
     
     // MARK - ATLConversationViewControllerDelegate methods
@@ -50,6 +57,8 @@ class ConversationViewController: ATLConversationViewController, ATLConversation
     func conversationViewController(viewController: ATLConversationViewController, didSelectMessage message: LYRMessage) {
         print("Message selected")
     }
+    
+
     
     // MARK - ATLConversationViewControllerDataSource methods
     
@@ -156,9 +165,6 @@ class ConversationViewController: ATLConversationViewController, ATLConversation
 //        }
     }
 
-    
-    @IBAction func backButtonPressed(sender: AnyObject) {
-        self.navigationController?.popToRootViewControllerAnimated(true)
-    }
 }
+
 

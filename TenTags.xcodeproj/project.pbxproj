@@ -10,6 +10,7 @@
 		0A34BBBC1C10A01C0098BEE6 /* ConversationsListViewContrller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A34BBBB1C10A01C0098BEE6 /* ConversationsListViewContrller.swift */; };
 		0A34BBBF1C1117000098BEE6 /* PFUser+ATLParticipant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A34BBBE1C1117000098BEE6 /* PFUser+ATLParticipant.swift */; };
 		0A34BBC11C11173C0098BEE6 /* ColorExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A34BBC01C11173C0098BEE6 /* ColorExtention.swift */; };
+		0A34BBC31C1348050098BEE6 /* TypingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A34BBC21C1348050098BEE6 /* TypingIndicator.swift */; };
 		0A647BF71C02BE5800511E88 /* AddNewTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A647BF61C02BE5800511E88 /* AddNewTagViewController.swift */; };
 		0A7B3F641C07617B00B32DDC /* TTUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7B3F631C07617B00B32DDC /* TTUser.swift */; };
 		0A92B8A91C0298BE005AF812 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A92B8A81C0298BE005AF812 /* ConversationViewController.swift */; };
@@ -34,6 +35,7 @@
 		0A34BBBB1C10A01C0098BEE6 /* ConversationsListViewContrller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationsListViewContrller.swift; sourceTree = "<group>"; };
 		0A34BBBE1C1117000098BEE6 /* PFUser+ATLParticipant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PFUser+ATLParticipant.swift"; sourceTree = "<group>"; };
 		0A34BBC01C11173C0098BEE6 /* ColorExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtention.swift; sourceTree = "<group>"; };
+		0A34BBC21C1348050098BEE6 /* TypingIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypingIndicator.swift; sourceTree = "<group>"; };
 		0A647BF61C02BE5800511E88 /* AddNewTagViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewTagViewController.swift; sourceTree = "<group>"; };
 		0A7B3F631C07617B00B32DDC /* TTUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTUser.swift; sourceTree = "<group>"; };
 		0A92B8A81C0298BE005AF812 /* ConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				0A34BBBE1C1117000098BEE6 /* PFUser+ATLParticipant.swift */,
+				0A34BBC21C1348050098BEE6 /* TypingIndicator.swift */,
 				0A34BBC01C11173C0098BEE6 /* ColorExtention.swift */,
 			);
 			name = Extensions;
@@ -297,6 +300,7 @@
 				0ADFDE361C0400F000538CCC /* TagCell.swift in Sources */,
 				0AB802DB1C089CEE003408C0 /* TTAnnotation.swift in Sources */,
 				0AB802DD1C09F5C3003408C0 /* TTAnnotationView.swift in Sources */,
+				0A34BBC31C1348050098BEE6 /* TypingIndicator.swift in Sources */,
 				0A34BBC11C11173C0098BEE6 /* ColorExtention.swift in Sources */,
 				0AA222FF1BFF7FF0002D7A37 /* MapViewController.swift in Sources */,
 				0AA222FD1BFF7FA7002D7A37 /* MyTagsViewController.swift in Sources */,

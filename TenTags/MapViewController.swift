@@ -269,6 +269,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                         let conversationViewController: ConversationViewController = ConversationViewController(layerClient: self.layerClient)
                         //                    conversationViewController.displaysAddressBar = shouldShowAddressBar
                         conversationViewController.conversation = conversation
+                        conversationViewController.typingIndicatorController = ATLTypingIndicatorViewController()
                         self.navigationController?.pushViewController(conversationViewController, animated: true)
                     }
                 })
