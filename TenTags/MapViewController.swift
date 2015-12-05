@@ -54,8 +54,27 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         self.navigationController!.pushViewController(conversationListViewController, animated: true)
     }
 
+
+    func updateUnreadMessageCount() {
+        
+        // Fetches the count of all unread messages for the authenticated user
+        let query:LYRQuery! = LYRQuery(queryableClass: LYRMessage.self)
     
-    
+        // Messages must be unread
+        let unreadPredicate:LYRPredicate! = LYRPredicate(property: "isUnread", predicateOperator: LYRPredicateOperator.IsEqualTo, value: true)
+        
+        // Messages must not be sent by the authenticated user
+        let userPredicate:LYRPredicate! = LYRPredicate(property: "sender.userID", predicateOperator: LYRPredicateOperator.IsNotEqualTo, value: self.layerClient.authenticatedUserID)
+        
+        
+        query.predicate = LYRCompoundPredicate(type: LYRCompoundPredicateType.And, subpredicates: [unreadPredicate, userPredicate])
+        
+        query.resultType = LYRQueryResultType.Count
+        var error:NSError? = nil
+        let unreadMessageCount = self.layerClient.countForQuery(query!, error: &error)
+
+        converstaionsButton.setTitle("\(unreadMessageCount)", forState: UIControlState.Normal)
+    }
     
     
     func centerMap() {
@@ -70,11 +89,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             }
         }
     }
-    
-//    @IBAction func buttonPushed(sender: AnyObject) {
-//        let myTagsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MyTagsViewController") as! MyTagsViewController
-//        navigationController?.pushViewController(myTagsViewController, animated: true)
-//    }
     
     
     override func viewDidLoad() {
@@ -162,6 +176,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     func updateAnnotations() -> Void {
         NSLog("updating annotations")
+        updateUnreadMessageCount()
+        
         // do something with the new geoPoint
         TTUser.searchUsersWithMatchingTagsCloseBy({ (results) -> () in
             self.mapView.removeAnnotations(self.allAnnotations)
