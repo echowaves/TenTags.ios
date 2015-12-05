@@ -280,6 +280,9 @@
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="conversationsButtonClicked:" destination="Eqz-v2-W3a" eventType="touchUpInside" id="J6u-Lc-QEr"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <animations/>
@@ -292,6 +295,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="converstaionsButton" destination="Jb7-Kd-2yp" id="eBZ-9U-emZ"/>
                         <outlet property="mapView" destination="z4f-LG-0Yn" id="ML7-Zs-LbD"/>
                     </connections>
                 </viewController>

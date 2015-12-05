@@ -20,6 +20,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     var timer:NSTimer?
     var layerClient: LYRClient!
 
+    @IBOutlet weak var converstaionsButton: UIButton!
+    
     @IBOutlet weak var mapView: MKMapView!
 
     var currentAnnotation = TTAnnotation(coordinate: CLLocationCoordinate2D(), title: "", subtitle: "", type: .Me, user: PFUser.currentUser())
@@ -35,10 +37,26 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         return manager
     }()
     
+    @IBAction func conversationsButtonClicked(sender: AnyObject) {
+        self.presentConversationListViewController()
+    }
+    
     @IBAction func centerMapAction(sender: AnyObject) {
         self.centerMap()
     }
 
+
+    func presentConversationListViewController() {
+        let conversationListViewController: ConversationListViewController! = ConversationListViewController(layerClient: self.layerClient)
+//        conversationListViewController.displaysAvatarItem = true
+        conversationListViewController.allowsEditing = false
+        conversationListViewController.shouldDisplaySearchController = false
+        self.navigationController!.pushViewController(conversationListViewController, animated: true)
+    }
+
+    
+    
+    
     
     func centerMap() {
         PFGeoPoint.geoPointForCurrentLocationInBackground {
@@ -64,6 +82,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
 //        TTUser.clearStoredCredential()
 //        exit(0)
 //        SVProgressHUD.show()
+
+        self.title = ""
 
         layerClient = APP_DELEGATE.layerClient
         

@@ -18,15 +18,16 @@ class ConversationListViewController: ATLConversationListViewController, ATLConv
         self.dataSource = self
         self.delegate = self
         
-        self.navigationController!.navigationBar.tintColor = ATLBlueColor()
+//        self.navigationController!.navigationBar.tintColor = ATLBlueColor()
         
-        let title = NSLocalizedString("Logout", comment: "")
-        let logoutItem = UIBarButtonItem(title: title, style: UIBarButtonItemStyle.Plain, target: self, action: Selector("logoutButtonTapped:"))
-        self.navigationItem.setLeftBarButtonItem(logoutItem, animated: false)
-        
-        let composeItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Compose, target: self, action: Selector("composeButtonTapped:"))
-        self.navigationItem.setRightBarButtonItem(composeItem, animated: false)
-        self.navigationController?.navigationItem.leftBarButtonItem?.title = "qwe"
+//        let title = NSLocalizedString("Logout", comment: "")
+//        let logoutItem = UIBarButtonItem(title: title, style: UIBarButtonItemStyle.Plain, target: self, action: Selector("logoutButtonTapped:"))
+//        self.navigationItem.setLeftBarButtonItem(logoutItem, animated: false)
+//        
+//        let composeItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Compose, target: self, action: Selector("composeButtonTapped:"))
+//        self.navigationItem.setRightBarButtonItem(composeItem, animated: false)
+//        self.navigationController?.navigationItem.title = "qwe"
+        self.title = ""
 
     }
     
@@ -36,13 +37,13 @@ class ConversationListViewController: ATLConversationListViewController, ATLConv
         self.presentControllerWithConversation(conversation)
     }
     
-    func conversationListViewController(conversationListViewController: ATLConversationListViewController, didDeleteConversation conversation: LYRConversation, deletionMode: LYRDeletionMode) {
-        print("Conversation deleted")
-    }
-    
-    func conversationListViewController(conversationListViewController: ATLConversationListViewController, didFailDeletingConversation conversation: LYRConversation, deletionMode: LYRDeletionMode, error: NSError?) {
-        print("Failed to delete conversation with error: \(error)")
-    }
+//    func conversationListViewController(conversationListViewController: ATLConversationListViewController, didDeleteConversation conversation: LYRConversation, deletionMode: LYRDeletionMode) {
+//        print("Conversation deleted")
+//    }
+//    
+//    func conversationListViewController(conversationListViewController: ATLConversationListViewController, didFailDeletingConversation conversation: LYRConversation, deletionMode: LYRDeletionMode, error: NSError?) {
+//        print("Failed to delete conversation with error: \(error)")
+//    }
     
 //    func conversationListViewController(conversationListViewController: ATLConversationListViewController, didSearchForText searchText: String, completion: ((Set<NSObject>!) -> Void)?) {
 //        UserManager.sharedManager.queryForUserWithName(searchText) { (participants: NSArray?, error: NSError?) in
@@ -111,7 +112,7 @@ class ConversationListViewController: ATLConversationListViewController, ATLConv
 //                return "Conversation with \(conversation.participants.count) users..."
 //            }
 //        }
-        return "This is my conversation title"
+        return ""
 
     }
     
