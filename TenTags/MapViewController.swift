@@ -132,6 +132,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         NSLog("view will appear")
         if self.timer != nil {
             updateAnnotations()
+            
+            let currentUser = PFUser.currentUser()
+            let coordinates = CLLocationCoordinate2D(latitude: ((currentUser![TTUSER.location] as? PFGeoPoint)?.latitude)!, longitude: ((currentUser![TTUSER.location] as? PFGeoPoint)?.longitude)!)
+            //without the following call the myAnnotation button does not work after coming back from a previous screen until location changes
+            updateMyAnnotation(coordinates)
         }
     }
     
