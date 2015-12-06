@@ -170,7 +170,26 @@ class TTUser: NSObject {
 
     
     class func isBlockedBy(sourceUser:PFUser, targetUserId:String) -> Bool {
-        return (sourceUser[TTUSER.blockedUsers] as! [String]).contains(targetUserId)
+        let blockedUsers = sourceUser[TTUSER.blockedUsers] as? [String]
+        if blockedUsers == nil {
+            return false
+        } else {
+            return blockedUsers!.contains(targetUserId)
+        }
     }
-    
+
+    class func amIBlockedBy(userId:String,
+        succeeded:(blocked: Bool) -> (),
+        failed:(error: NSError!) -> ()
+        ) -> Void {
+            let query = PFUser.query()
+            query?.getObjectInBackgroundWithId(userId, block: { (userObject:PFObject?, error:NSError?) -> Void in
+                if userObject != nil {
+                    succeeded(blocked: isBlockedBy(userObject as! PFUser, targetUserId:(PFUser.currentUser()?.objectId!)!))
+                } else {
+                    failed(error: error)
+                }
+            })
+    }
+
 }

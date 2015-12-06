@@ -45,7 +45,7 @@ class ConversationViewController: ATLConversationViewController, ATLConversation
     
     // MARK - ATLConversationViewControllerDelegate methods
     
-    func conversationViewController(viewController: ATLConversationViewController, didSendMessage message: LYRMessage) {
+    func conversationViewController(viewController: ATLConversationViewController!, didSendMessage message: LYRMessage!) {
         print("Message sent!")
     }
     
@@ -164,6 +164,7 @@ class ConversationViewController: ATLConversationViewController, ATLConversation
 ////        }
 //    }
 //
+
     
     
     func blockUser(sender: AnyObject) {
@@ -194,19 +195,32 @@ class ConversationViewController: ATLConversationViewController, ATLConversation
         }
         return nil
     }
-    
+
 
     func showBlockMenu() {
         if TTUser.isBlockedBy(PFUser.currentUser()!, targetUserId: theOtherUserId()!) {
             let unblockConversation = UIBarButtonItem(title: "unblock", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("unblockUser:"))
             self.navigationItem.setRightBarButtonItem(unblockConversation, animated: false)
+            self.messageInputToolbar.hidden = true
             
         } else {
             let blockConversation = UIBarButtonItem(title: "block", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("blockUser:"))
             self.navigationItem.setRightBarButtonItem(blockConversation, animated: false)
+            self.messageInputToolbar.hidden = false
             
         }
+        
+        TTUser.amIBlockedBy(theOtherUserId()!,
+            succeeded: { (blocked: Bool) -> () in
+                if blocked {
+                    self.messageInputToolbar.hidden = true
+                }
+            },
+            failed: { (error: NSError!) -> () in
+                NSLog("falied check if I'm blocked:")
+        })
     }
+    
 }
 
 
