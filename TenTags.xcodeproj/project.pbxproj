@@ -102,13 +102,13 @@
 		0AAD0F961BFF686C001EE16B /* TenTags */ = {
 			isa = PBXGroup;
 			children = (
-				0A34BBBD1C1116D20098BEE6 /* Extensions */,
-				0ADFDE301C037F0100538CCC /* Model */,
 				0AAD0F971BFF686C001EE16B /* AppDelegate.swift */,
 				0AAD0F9B1BFF686C001EE16B /* Main.storyboard */,
 				0AAD0FA01BFF686C001EE16B /* LaunchScreen.storyboard */,
 				0AAD0F9E1BFF686C001EE16B /* Assets.xcassets */,
 				0AAD0FA31BFF686C001EE16B /* Info.plist */,
+				0A34BBBD1C1116D20098BEE6 /* Extensions */,
+				0ADFDE301C037F0100538CCC /* Model */,
 				0AA222FE1BFF7FF0002D7A37 /* MapViewController.swift */,
 				0AB802DA1C089CEE003408C0 /* TTAnnotation.swift */,
 				0AB802DC1C09F5C3003408C0 /* TTAnnotationView.swift */,

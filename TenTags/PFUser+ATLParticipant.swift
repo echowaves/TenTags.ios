@@ -13,11 +13,11 @@ import Atlas
 extension PFUser: ATLParticipant {
     
     public var firstName: String {
-        return self.username!
+        return ""//self.username!
     }
     
     public var lastName: String {
-        return "Test"
+        return ""
     }
     
     public var fullName: String {
