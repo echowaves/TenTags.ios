@@ -29,9 +29,13 @@ class ConversationViewController: ATLConversationViewController, ATLConversation
         self.dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
         
         self.configureUI()
-        self.showBlockMenu()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.showBlockMenu()
+        
+    }
     
     
     // MARK - UI Configuration methods
@@ -46,7 +50,8 @@ class ConversationViewController: ATLConversationViewController, ATLConversation
     // MARK - ATLConversationViewControllerDelegate methods
     
     func conversationViewController(viewController: ATLConversationViewController!, didSendMessage message: LYRMessage!) {
-        print("Message sent!")
+        NSLog("Message sent!")
+        showBlockMenu()
     }
     
     func conversationViewController(viewController: ATLConversationViewController, didFailSendingMessage message: LYRMessage, error: NSError?) {
@@ -214,6 +219,9 @@ class ConversationViewController: ATLConversationViewController, ATLConversation
             succeeded: { (blocked: Bool) -> () in
                 if blocked {
                     self.messageInputToolbar.hidden = true
+                    self.title = "Blocked"
+                } else {
+                    self.title = ""
                 }
             },
             failed: { (error: NSError!) -> () in
