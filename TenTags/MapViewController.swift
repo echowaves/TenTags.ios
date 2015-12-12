@@ -221,15 +221,16 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let newLocation = locations.last
-        
-        updateMyAnnotation(newLocation!.coordinate)
+//        let newLocation = locations.last
+        let currentLocation = manager.location!.coordinate
+//        let currentCoordinates = CLLocationCoordinate2D(latitude: currentLocation.latitude, longitude: currentLocation.longitude)
+        updateMyAnnotation(currentLocation)
         
         if UIApplication.sharedApplication().applicationState == .Active {
 //            mapView.showAnnotations(currentLocation, animated: true)
-            NSLog("App is active. New location is %@", newLocation!)
+            NSLog("App is active. New location is \(currentLocation.latitude) \(currentLocation.longitude)")
         } else {
-            NSLog("App is backgrounded. New location is %@", newLocation!)
+            NSLog("App is backgrounded. New location is \(currentLocation.latitude) \(currentLocation.longitude)")
         }
     }
     
