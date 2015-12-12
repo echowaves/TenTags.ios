@@ -135,7 +135,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             if error == nil {
                 NSLog("about to sign in")
                 TTUser.createOrloginUser({ (user) -> () in
-                    self.locationManager.startUpdatingLocation()
+//                    self.locationManager.startUpdatingLocation()
+                    self.locationManager.startMonitoringSignificantLocationChanges()
+                    self.locationManager.pausesLocationUpdatesAutomatically = true
+
                     // do something with the new geoPoint
                     let coordinates = CLLocationCoordinate2D(latitude: (geoPoint?.latitude)!, longitude: (geoPoint?.longitude)!)
                     
@@ -217,16 +220,16 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    
-    func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
-
-        updateMyAnnotation(newLocation.coordinate)
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let newLocation = locations.last
+        
+        updateMyAnnotation(newLocation!.coordinate)
         
         if UIApplication.sharedApplication().applicationState == .Active {
 //            mapView.showAnnotations(currentLocation, animated: true)
-            NSLog("App is active. New location is %@", newLocation)
+            NSLog("App is active. New location is %@", newLocation!)
         } else {
-            NSLog("App is backgrounded. New location is %@", newLocation)
+            NSLog("App is backgrounded. New location is %@", newLocation!)
         }
     }
     
