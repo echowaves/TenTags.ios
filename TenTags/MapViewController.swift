@@ -135,8 +135,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             if error == nil {
                 NSLog("about to sign in")
                 TTUser.createOrloginUser({ (user) -> () in
-//                    self.locationManager.startUpdatingLocation()
-                    self.locationManager.startMonitoringSignificantLocationChanges()
+                    self.locationManager.startUpdatingLocation()
+//                    self.locationManager.startMonitoringSignificantLocationChanges()
                     self.locationManager.pausesLocationUpdatesAutomatically = true
 
                     // do something with the new geoPoint
