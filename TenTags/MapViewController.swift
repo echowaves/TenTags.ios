@@ -231,6 +231,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             NSLog("App is active. New location is \(currentLocation.latitude) \(currentLocation.longitude)")
         } else {
             NSLog("App is backgrounded. New location is \(currentLocation.latitude) \(currentLocation.longitude)")
+            self.mapView.centerCoordinate = currentLocation
         }
     }
     
